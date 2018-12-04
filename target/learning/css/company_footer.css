@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div{
+    display: block;
+}
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+dt{
+    display: block;
+}
+dd,img{
+    vertical-align: middle;
+}
+
+body,dd,dl, dt ,footer ul{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+.clearfix:after, .clearfix:before {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.ft-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 225px;
+    width: 100%;
+    z-index: 10;
+    background: #2A2F35;
+}
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.ft-cont {
+    background: #2a2f35;
+    width: 960px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.cft-info {
+    width: 300px;
+}
+.ft-web-info {
+    float: left;
+    width: 260px;
+    padding: 0 20px;
+    margin-right: 20px;
+}
+.ft-web-name {
+    font-size: 16px;
+    color: #fff;
+    margin: 20px 0 30px;
+}
+.ft-info-item {
+    color: #8793a2;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 5px;
+}
+.cft-contact {
+    width: 400px;
+    position: relative;
+    margin-left: 100px;
+    padding-left: 60px;
+}
+.cft-contact:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20px;
+    background: #646f7c;
+    width: 1px;
+    height: 100%;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+

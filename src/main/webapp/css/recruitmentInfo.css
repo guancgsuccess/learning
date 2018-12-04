@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: #eee;
+    font-family: "微软雅黑 Light";
+    font-size: 18px;
+}
+#head{
+    z-index: 200;
+}
+#recruitmentInfo{
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+    width: 70%;
+    border: #eee 1px solid;
+    background-color: white;
+}
+#recruitmentInfo div{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    width: 90%;
+    border-radius: 5px;
+    border: #3d444c 1px solid;
+}
+#recruitmentInfo i{
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+#recruitmentInfo span{
+    margin-left: 3px;
+    position: relative;
+    top: -9px;
+    line-height: 32px;
+}
+#company{
+    margin-top: 60px!important;
+}
+#company i{
+    background: url("../image/公司.png");
+}
+#position i{
+    background: url("../image/职位.png");
+}
+#amount i{
+    background: url("../image/人数.png");
+}
+#treatment i{
+    background: url("../image/薪资.png");
+}
+#time i{
+    background: url("../image/时间.png");
+}
+#address i{
+    background: url("../image/地址.png");
+}
+#requirement i{
+    background: url("../image/要求.png");
+}
+#requirement{
+    height: auto!important;
+}

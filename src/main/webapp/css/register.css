@@ -1,0 +1,212 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+#head{
+    z-index: 200;
+}
+
+#wraper{
+    width: 100%;
+    height: auto;
+    background-color: #eee;
+}
+
+#blank1{
+    height: 18px;
+}
+
+#blank2{
+    height: 36px;
+}
+
+#register{
+    width: 960px;
+    margin: auto;
+    height: 457px;
+    background-color: #FFFFFF;
+    border: 1px solid #dcdcdc;
+}
+#top{
+    width: 100%;
+    height: 87px;
+}
+
+#top div{
+    float: left;
+    width: 50%;
+    text-align: center;
+    font-size: 24px;
+    height: 84px;
+    line-height: 84px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+#right_register{
+    border-top: 2px solid #25bb9b;
+    background: #FFF;
+}
+
+#right_register a{
+    color: #25bb9b;
+}
+
+
+#left_login{
+    border-top: 2px solid #f3f4f5;
+    background-color: #f3f4f5;
+}
+
+#left_login a{
+    color: #666;
+}
+
+#left_login a:hover{
+    color: #25bb9b;
+}
+
+#bottom{
+    width: 100%;
+    height: 370px;
+}
+
+#bottom_left{
+    width: 47%;
+    float: left;
+    height: 100%;
+}
+
+#bottom_left div{
+    margin: auto;
+    margin-top: 18px;
+    width: 248px;
+}
+
+#login_input1{
+    margin-top: 20px!important;
+}
+
+.login_input{
+    height: 35px;
+    width: 248px;
+    font-size: 14px;
+}
+
+.login_inputs{
+    padding-left: 15px;
+}
+
+.valid_input{
+    height: 35px;
+    font-size: 14px;
+    width: 138px;
+}
+
+#for_valid{
+    height: 35px;
+    font-size: 14px;
+    width: 105px;
+    background-color: #67cab2;
+    border: none;
+    color: #fff;
+}
+
+.valid_sapn{
+    height: 14px;
+    width: 250px;
+    display: none;
+    font-size: 12px;
+    color: #FF411C;
+}
+
+#login_submit{
+    background-color: #25bb9b;
+    border: none;
+    color: #fff;
+}
+
+#bottom_middle{
+    width: 5%;
+    margin: auto;
+    text-align: center;
+    line-height: 370px;
+    color: #666;
+    font-size: 18px;
+    float: left;
+    height: 100%;
+}
+
+#bottom_right{
+    width: 47%;
+    float: left;
+    height: 100%;
+}
+
+#bottom_right_div{
+    margin-top: 100px;
+    margin-left: 70px;
+    position: relative;
+}
+
+/*#bottom_right_div li{*/
+    /*width: 255px;*/
+    /*height: 38px;*/
+    /*margin-top: 25px;*/
+    /*display: block;*/
+    /*margin-bottom: 20px;*/
+    /*border: 1px solid #d4d4d4;*/
+    /*border-radius: 6px;*/
+    /*line-height: 38px;*/
+    /*height: 38px;*/
+    /*font-size: 14px;*/
+    /*text-align: center;*/
+/*}*/
+
+/*#bottom_right_div a{*/
+    /*color: #666;*/
+/*}*/
+
+/*#bottom_right_div a:hover{*/
+    /*color: #25bb9b;*/
+/*}*/
+
+/*#bottom_right_div #login-qq,*/
+/*#bottom_right_div #login-wb,*/
+/*#bottom_right_div #login-wx{*/
+    /*display: block;*/
+    /*margin-bottom: 20px;*/
+    /*border: 1px solid #d4d4d4;*/
+    /*border-radius: 6px;*/
+    /*line-height: 38px;*/
+    /*height: 38px;*/
+    /*font-size: 14px;*/
+    /*color: #666;*/
+    /*padding-left: 50px;*/
+    /*width: 155px;*/
+    /*background: url(//static.nowcoder.com/images/img/icons/ico-bind-logo.png) 8px 0 no-repeat;*/
+/*}*/
+/*#bottom_right_div #login-qq {*/
+    /*background-position: 8px -235px;*/
+/*}*/
+
+/*#bottom_right_div #login-wx{*/
+    /*background-position: 8px -390px;*/
+/*}*/
+
+/*#bottom_right_div #login-wb {*/
+    /*background-position: 8px -278px;*/
+/*}*/
+
+/*#bottom_right_div #login-qq:hover,*/
+/*#bottom_right_div #login-wb:hover,*/
+/*#bottom_right_div #login-wx:hover{*/
+    /*color: #25bb9b;*/
+/*}*/

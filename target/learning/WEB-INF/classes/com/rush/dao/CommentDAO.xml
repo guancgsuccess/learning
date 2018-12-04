@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.CommentDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.Comment">
+    <id column="comment_id" jdbcType="INTEGER" property="commentId" />
+    <result column="comment_question_id" jdbcType="INTEGER" property="commentQuestionId" />
+    <result column="comment_user_id" jdbcType="INTEGER" property="commentUserId" />
+    <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
+    <result column="comment_content" jdbcType="VARCHAR" property="commentContent" />
+    <result column="comment_status" jdbcType="INTEGER" property="commentStatus" />
+    <result column="comment_spare" jdbcType="VARCHAR" property="commentSpare" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    comment_id, comment_question_id, comment_user_id, comment_time, comment_content, 
+    comment_status, comment_spare
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.Comment">
+    insert into comment (comment_id, comment_question_id, comment_user_id, 
+      comment_time, comment_content, comment_status, 
+      comment_spare)
+    values (#{commentId,jdbcType=INTEGER}, #{commentQuestionId,jdbcType=INTEGER}, #{commentUserId,jdbcType=INTEGER}, 
+      #{commentTime,jdbcType=TIMESTAMP}, #{commentContent,jdbcType=VARCHAR}, #{commentStatus,jdbcType=INTEGER}, 
+      #{commentSpare,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.Comment">
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commentId != null">
+        comment_id,
+      </if>
+      <if test="commentQuestionId != null">
+        comment_question_id,
+      </if>
+      <if test="commentUserId != null">
+        comment_user_id,
+      </if>
+      <if test="commentTime != null">
+        comment_time,
+      </if>
+      <if test="commentContent != null">
+        comment_content,
+      </if>
+      <if test="commentStatus != null">
+        comment_status,
+      </if>
+      <if test="commentSpare != null">
+        comment_spare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commentId != null">
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="commentQuestionId != null">
+        #{commentQuestionId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUserId != null">
+        #{commentUserId,jdbcType=INTEGER},
+      </if>
+      <if test="commentTime != null">
+        #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentContent != null">
+        #{commentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="commentStatus != null">
+        #{commentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="commentSpare != null">
+        #{commentSpare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.Comment">
+    update comment
+    <set>
+      <if test="commentQuestionId != null">
+        comment_question_id = #{commentQuestionId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUserId != null">
+        comment_user_id = #{commentUserId,jdbcType=INTEGER},
+      </if>
+      <if test="commentTime != null">
+        comment_time = #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentContent != null">
+        comment_content = #{commentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="commentStatus != null">
+        comment_status = #{commentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="commentSpare != null">
+        comment_spare = #{commentSpare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.Comment">
+    update comment
+    set comment_question_id = #{commentQuestionId,jdbcType=INTEGER},
+      comment_user_id = #{commentUserId,jdbcType=INTEGER},
+      comment_time = #{commentTime,jdbcType=TIMESTAMP},
+      comment_content = #{commentContent,jdbcType=VARCHAR},
+      comment_status = #{commentStatus,jdbcType=INTEGER},
+      comment_spare = #{commentSpare,jdbcType=VARCHAR}
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <select id="selectAllCommentsByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from comment
+    where comment_user_id = #{userId,jdbcType=INTEGER};
+  </select>
+  <select id="selectAllCommentsByQuestionID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from comment
+    where comment_question_id = #{questionId,jdbcType=INTEGER};
+  </select>
+
+  <select id="selectOneLatestCommentByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List"/>
+    from comment
+    where comment_user_id = #{commentUserId,jdbcType=INTEGER} order by comment_time desc limit 0,1
+  </select>
+
+
+  <select id="selectAllCommentByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List"/>
+    from comment
+    where comment_user_id = #{commentUserId,jdbcType=INTEGER}
+  </select>
+
+
+  <select id="selectCommentsByQuestionId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List"/>
+    from comment
+    where comment_question_id = #{commentQuestionId,jdbcType=INTEGER} order by comment_time desc
+  </select>
+</mapper>

@@ -1,0 +1,126 @@
+#head{
+    z-index: 200;
+}
+/****************************====main-bottom-right====*********************/
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-head{
+    width: 100%;
+    /*height: 34px;*/
+    /*border: 1px solid black;*/
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-head h3{
+    float: left;
+    margin-left: 10px;
+    line-height: 34px;
+}
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-head label{
+    color: #00bc9b;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-head label>input{
+    width: 15px;
+    height: 15px;
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-head h3::before{
+    background: #FF6547;
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    vertical-align: middle;
+}
+
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body{
+    width: 100%;
+    /*height: 540px;*/
+    /*border: 1px solid black;*/
+    box-sizing: border-box;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body .empty-main{
+    width: 620px;
+    /*height: 480px;*/
+    margin: 0 auto;
+    min-height: 310px;
+    /*background-color: darkgrey;*/
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body .empty-main ul{
+    width: 620px;
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body .empty-main ul li{
+    width: 620px;
+    height: 40px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-bottom:1px solid #DCDCDC;
+    cursor: pointer;
+    /*background-color: red;*/
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body .empty-main ul li:hover{
+    background-color: #ededed;
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body .empty-main ul li span{
+    display: inline-block;
+    /*width: 120px;*/
+    line-height: 40px;
+    margin-left: 20px;
+    font-size: 14px;
+    text-align: center;
+    -webkit-user-select: none; /* for Chrome */
+    -moz-user-select: none; /* for Firefox */
+}
+
+
+/*分页*/
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body .empty-main .show-paper-page{
+    /*width: 620px;*/
+    /*border: 1px solid black;*/
+    /*margin: 0 auto;*/
+    padding-top: 15px;
+    padding-left: 50px;
+    box-sizing: border-box;
+    /*text-align: center;*/
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body .empty-main .show-paper-page a{
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 13px;
+    display: inline-block;
+    width: 51px;
+    line-height: 32px;
+    /*border: 1px solid black;*/
+    background-image: url("../image/按钮-灰.png");
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body .empty-main .show-paper-page a:hover{
+    background-image: url("../image/按钮-灰-被选中.png");
+}
+
+#brush-question .main-bottom-right #ajax-real-quiz-paper .module-body .empty-main .show-paper-page span{
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 10px;
+    display: inline-block;
+    width: 64px;
+    line-height: 64px;
+    background-image: url("../image/长方形.png");
+}

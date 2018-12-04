@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.CompanyLoginDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.CompanyLogin">
+    <id column="company_login_id" jdbcType="INTEGER" property="companyLoginId" />
+    <result column="company_login_email" jdbcType="VARCHAR" property="companyLoginEmail" />
+    <result column="company_login_password" jdbcType="VARCHAR" property="companyLoginPassword" />
+    <result column="company_login_verify" jdbcType="INTEGER" property="companyLoginVerify" />
+    <result column="company_login_time" jdbcType="TIMESTAMP" property="companyLoginTime" />
+    <result column="company_login_status" jdbcType="INTEGER" property="companyLoginStatus" />
+    <result column="company_login_spare" jdbcType="VARCHAR" property="companyLoginSpare" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    company_login_id, company_login_email, company_login_password, company_login_verify, 
+    company_login_time, company_login_status, company_login_spare
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from company_login
+    where company_login_id = #{companyLoginId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from company_login
+    where company_login_id = #{companyLoginId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.CompanyLogin">
+    insert into company_login (company_login_id, company_login_email, 
+      company_login_password, company_login_verify, 
+      company_login_time, company_login_status, 
+      company_login_spare)
+    values (#{companyLoginId,jdbcType=INTEGER}, #{companyLoginEmail,jdbcType=VARCHAR}, 
+      #{companyLoginPassword,jdbcType=VARCHAR}, #{companyLoginVerify,jdbcType=INTEGER}, 
+      #{companyLoginTime,jdbcType=TIMESTAMP}, #{companyLoginStatus,jdbcType=INTEGER}, 
+      #{companyLoginSpare,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.CompanyLogin">
+    insert into company_login
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyLoginId != null">
+        company_login_id,
+      </if>
+      <if test="companyLoginEmail != null">
+        company_login_email,
+      </if>
+      <if test="companyLoginPassword != null">
+        company_login_password,
+      </if>
+      <if test="companyLoginVerify != null">
+        company_login_verify,
+      </if>
+      <if test="companyLoginTime != null">
+        company_login_time,
+      </if>
+      <if test="companyLoginStatus != null">
+        company_login_status,
+      </if>
+      <if test="companyLoginSpare != null">
+        company_login_spare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyLoginId != null">
+        #{companyLoginId,jdbcType=INTEGER},
+      </if>
+      <if test="companyLoginEmail != null">
+        #{companyLoginEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLoginPassword != null">
+        #{companyLoginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLoginVerify != null">
+        #{companyLoginVerify,jdbcType=INTEGER},
+      </if>
+      <if test="companyLoginTime != null">
+        #{companyLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="companyLoginStatus != null">
+        #{companyLoginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="companyLoginSpare != null">
+        #{companyLoginSpare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.CompanyLogin">
+    update company_login
+    <set>
+      <if test="companyLoginEmail != null">
+        company_login_email = #{companyLoginEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLoginPassword != null">
+        company_login_password = #{companyLoginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLoginVerify != null">
+        company_login_verify = #{companyLoginVerify,jdbcType=INTEGER},
+      </if>
+      <if test="companyLoginTime != null">
+        company_login_time = #{companyLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="companyLoginStatus != null">
+        company_login_status = #{companyLoginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="companyLoginSpare != null">
+        company_login_spare = #{companyLoginSpare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where company_login_id = #{companyLoginId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.CompanyLogin">
+    update company_login
+    set company_login_email = #{companyLoginEmail,jdbcType=VARCHAR},
+      company_login_password = #{companyLoginPassword,jdbcType=VARCHAR},
+      company_login_verify = #{companyLoginVerify,jdbcType=INTEGER},
+      company_login_time = #{companyLoginTime,jdbcType=TIMESTAMP},
+      company_login_status = #{companyLoginStatus,jdbcType=INTEGER},
+      company_login_spare = #{companyLoginSpare,jdbcType=VARCHAR}
+    where company_login_id = #{companyLoginId,jdbcType=INTEGER}
+  </update>
+</mapper>

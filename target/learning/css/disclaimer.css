@@ -1,0 +1,24 @@
+#head{
+    z-index: 200;
+}
+#aboutus_content{
+    height: 1290px;
+}
+
+.aboutus-content-txt p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.4em;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}

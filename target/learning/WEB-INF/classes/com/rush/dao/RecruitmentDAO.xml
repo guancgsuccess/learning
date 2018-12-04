@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.RecruitmentDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.Recruitment">
+    <id column="recruitment_id" jdbcType="INTEGER" property="recruitmentId" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="recuritment_position" jdbcType="VARCHAR" property="recuritmentPosition" />
+    <result column="recruitment_requirements" jdbcType="VARCHAR" property="recruitmentRequirements" />
+    <result column="recruitment_treatment" jdbcType="VARCHAR" property="recruitmentTreatment" />
+    <result column="interview_time" jdbcType="TIMESTAMP" property="interviewTime" />
+    <result column="interview_location" jdbcType="VARCHAR" property="interviewLocation" />
+    <result column="recruitment_number" jdbcType="INTEGER" property="recruitmentNumber" />
+    <result column="recruitment_information_status" jdbcType="INTEGER" property="recruitmentInformationStatus" />
+    <result column="recruitment_spare" jdbcType="VARCHAR" property="recruitmentSpare" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    recruitment_id, company_id, recuritment_position, recruitment_requirements, recruitment_treatment, 
+    interview_time, interview_location, recruitment_number, recruitment_information_status, 
+    recruitment_spare
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from recruitment
+    where recruitment_id = #{recruitmentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from recruitment
+    where recruitment_id = #{recruitmentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.Recruitment">
+    insert into recruitment (recruitment_id, company_id, recuritment_position, 
+      recruitment_requirements, recruitment_treatment, 
+      interview_time, interview_location, recruitment_number, 
+      recruitment_information_status, recruitment_spare
+      )
+    values (#{recruitmentId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{recuritmentPosition,jdbcType=VARCHAR}, 
+      #{recruitmentRequirements,jdbcType=VARCHAR}, #{recruitmentTreatment,jdbcType=VARCHAR}, 
+      #{interviewTime,jdbcType=TIMESTAMP}, #{interviewLocation,jdbcType=VARCHAR}, #{recruitmentNumber,jdbcType=INTEGER}, 
+      #{recruitmentInformationStatus,jdbcType=INTEGER}, #{recruitmentSpare,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.Recruitment">
+    insert into recruitment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recruitmentId != null">
+        recruitment_id,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="recuritmentPosition != null">
+        recuritment_position,
+      </if>
+      <if test="recruitmentRequirements != null">
+        recruitment_requirements,
+      </if>
+      <if test="recruitmentTreatment != null">
+        recruitment_treatment,
+      </if>
+      <if test="interviewTime != null">
+        interview_time,
+      </if>
+      <if test="interviewLocation != null">
+        interview_location,
+      </if>
+      <if test="recruitmentNumber != null">
+        recruitment_number,
+      </if>
+      <if test="recruitmentInformationStatus != null">
+        recruitment_information_status,
+      </if>
+      <if test="recruitmentSpare != null">
+        recruitment_spare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recruitmentId != null">
+        #{recruitmentId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="recuritmentPosition != null">
+        #{recuritmentPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="recruitmentRequirements != null">
+        #{recruitmentRequirements,jdbcType=VARCHAR},
+      </if>
+      <if test="recruitmentTreatment != null">
+        #{recruitmentTreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewTime != null">
+        #{interviewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interviewLocation != null">
+        #{interviewLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="recruitmentNumber != null">
+        #{recruitmentNumber,jdbcType=INTEGER},
+      </if>
+      <if test="recruitmentInformationStatus != null">
+        #{recruitmentInformationStatus,jdbcType=INTEGER},
+      </if>
+      <if test="recruitmentSpare != null">
+        #{recruitmentSpare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.Recruitment">
+    update recruitment
+    <set>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="recuritmentPosition != null">
+        recuritment_position = #{recuritmentPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="recruitmentRequirements != null">
+        recruitment_requirements = #{recruitmentRequirements,jdbcType=VARCHAR},
+      </if>
+      <if test="recruitmentTreatment != null">
+        recruitment_treatment = #{recruitmentTreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewTime != null">
+        interview_time = #{interviewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interviewLocation != null">
+        interview_location = #{interviewLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="recruitmentNumber != null">
+        recruitment_number = #{recruitmentNumber,jdbcType=INTEGER},
+      </if>
+      <if test="recruitmentInformationStatus != null">
+        recruitment_information_status = #{recruitmentInformationStatus,jdbcType=INTEGER},
+      </if>
+      <if test="recruitmentSpare != null">
+        recruitment_spare = #{recruitmentSpare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where recruitment_id = #{recruitmentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.Recruitment">
+    update recruitment
+    set company_id = #{companyId,jdbcType=INTEGER},
+      recuritment_position = #{recuritmentPosition,jdbcType=VARCHAR},
+      recruitment_requirements = #{recruitmentRequirements,jdbcType=VARCHAR},
+      recruitment_treatment = #{recruitmentTreatment,jdbcType=VARCHAR},
+      interview_time = #{interviewTime,jdbcType=TIMESTAMP},
+      interview_location = #{interviewLocation,jdbcType=VARCHAR},
+      recruitment_number = #{recruitmentNumber,jdbcType=INTEGER},
+      recruitment_information_status = #{recruitmentInformationStatus,jdbcType=INTEGER},
+      recruitment_spare = #{recruitmentSpare,jdbcType=VARCHAR}
+    where recruitment_id = #{recruitmentId,jdbcType=INTEGER}
+  </update>
+  <select id="selectAllRecruitments" parameterType="com.rush.util.PaginationUtil" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from recruitment
+    limit #{startRecord},#{pageSize};
+  </select>
+  <select id="selectRecruitmentByCompanyId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from recruitment
+    where company_id = #{companyId,jdbcType=INTEGER};
+  </select>
+  <select id="selectRecruitmentCount" resultType="java.lang.Integer">
+    select count(recruitment_id)
+    from recruitment;
+  </select>
+  <select id="selectRecruitmentByKeyword" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from recruitment
+    where recuritment_position like concat('%',#{keyword,jdbcType=VARCHAR},'%');
+  </select>
+
+
+  <!--****************-->
+  <insert id="addRe" parameterType="com.rush.entity.Recruitment">
+      insert into recruitment (recruitment_id, company_id, recuritment_position,
+      recruitment_requirements, recruitment_treatment,
+      interview_time, interview_location, recruitment_number,
+      recruitment_information_status, recruitment_spare
+      )
+    values (#{recruitmentId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{recuritmentPosition,jdbcType=VARCHAR},
+      #{recruitmentRequirements,jdbcType=VARCHAR}, #{recruitmentTreatment,jdbcType=VARCHAR},
+      #{interviewTime,jdbcType=TIMESTAMP}, #{interviewLocation,jdbcType=VARCHAR}, #{recruitmentNumber,jdbcType=INTEGER},
+      #{recruitmentInformationStatus,jdbcType=INTEGER}, #{recruitmentSpare,jdbcType=VARCHAR}
+      )
+    </insert>
+  <delete id="removeRe" parameterType="java.lang.Integer">
+        delete from recruitment
+        where recruitment_id = #{recruitmentId}
+    </delete>
+  <update id="updateReById" parameterType="com.rush.entity.Recruitment" >
+        update recruitment
+        set recuritment_position = #{recuritmentPosition},recruitment_requirements=#{recruitmentRequirements},
+        recruitment_treatment = #{recruitmentTreatment},interview_time = #{interviewTime},
+        interview_location=#{interviewLocation},recruitment_number=#{recruitmentNumber}
+        where recruitment_id=#{recruitmentId}
+    </update>
+  <select id="getAllRe" resultMap="BaseResultMap" parameterType="com.rush.util.PageModel">
+    select
+    <include refid="Base_Column_List" />
+    from recruitment
+    where company_id = #{companyId}
+    limit #{startRecord},#{pageSize}
+  </select>
+  <select id="getReCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(company_id)
+        from recruitment
+        where company_id = #{companyId}
+    </select>
+</mapper>

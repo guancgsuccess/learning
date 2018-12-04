@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.UserLoginDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.UserLogin">
+    <id column="user_login_id" jdbcType="INTEGER" property="userLoginId" />
+    <result column="user_login_account" jdbcType="VARCHAR" property="userLoginAccount" />
+    <result column="user_login_password" jdbcType="VARCHAR" property="userLoginPassword" />
+    <result column="user_login_verify" jdbcType="INTEGER" property="userLoginVerify" />
+    <result column="user_login_time" jdbcType="TIMESTAMP" property="userLoginTime" />
+    <result column="user_login_status" jdbcType="INTEGER" property="userLoginStatus" />
+    <result column="user_login_spare" jdbcType="VARCHAR" property="userLoginSpare" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_login_id, user_login_account, user_login_password, user_login_verify, user_login_time, 
+    user_login_status, user_login_spare
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_login
+    where user_login_id = #{userLoginId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_login
+    where user_login_id = #{userLoginId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.UserLogin">
+    insert into user_login (user_login_id, user_login_account, user_login_password, 
+      user_login_verify, user_login_time, user_login_status, 
+      user_login_spare)
+    values (#{userLoginId,jdbcType=INTEGER}, #{userLoginAccount,jdbcType=VARCHAR}, #{userLoginPassword,jdbcType=VARCHAR}, 
+      #{userLoginVerify,jdbcType=INTEGER}, #{userLoginTime,jdbcType=TIMESTAMP}, #{userLoginStatus,jdbcType=INTEGER}, 
+      #{userLoginSpare,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.UserLogin">
+    insert into user_login
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userLoginId != null">
+        user_login_id,
+      </if>
+      <if test="userLoginAccount != null">
+        user_login_account,
+      </if>
+      <if test="userLoginPassword != null">
+        user_login_password,
+      </if>
+      <if test="userLoginVerify != null">
+        user_login_verify,
+      </if>
+      <if test="userLoginTime != null">
+        user_login_time,
+      </if>
+      <if test="userLoginStatus != null">
+        user_login_status,
+      </if>
+      <if test="userLoginSpare != null">
+        user_login_spare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userLoginId != null">
+        #{userLoginId,jdbcType=INTEGER},
+      </if>
+      <if test="userLoginAccount != null">
+        #{userLoginAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userLoginPassword != null">
+        #{userLoginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userLoginVerify != null">
+        #{userLoginVerify,jdbcType=INTEGER},
+      </if>
+      <if test="userLoginTime != null">
+        #{userLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userLoginStatus != null">
+        #{userLoginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userLoginSpare != null">
+        #{userLoginSpare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.UserLogin">
+    update user_login
+    <set>
+      <if test="userLoginAccount != null">
+        user_login_account = #{userLoginAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userLoginPassword != null">
+        user_login_password = #{userLoginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userLoginVerify != null">
+        user_login_verify = #{userLoginVerify,jdbcType=INTEGER},
+      </if>
+      <if test="userLoginTime != null">
+        user_login_time = #{userLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userLoginStatus != null">
+        user_login_status = #{userLoginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userLoginSpare != null">
+        user_login_spare = #{userLoginSpare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_login_id = #{userLoginId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.UserLogin">
+    update user_login
+    set user_login_account = #{userLoginAccount,jdbcType=VARCHAR},
+      user_login_password = #{userLoginPassword,jdbcType=VARCHAR},
+      user_login_verify = #{userLoginVerify,jdbcType=INTEGER},
+      user_login_time = #{userLoginTime,jdbcType=TIMESTAMP},
+      user_login_status = #{userLoginStatus,jdbcType=INTEGER},
+      user_login_spare = #{userLoginSpare,jdbcType=VARCHAR}
+    where user_login_id = #{userLoginId,jdbcType=INTEGER}
+  </update>
+</mapper>

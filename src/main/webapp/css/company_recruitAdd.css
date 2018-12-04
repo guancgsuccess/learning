@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.clearfix:after{
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.menu li.selected, .menu li.selected .sub-menu, .menu li.selected a, .menu li.selected a:hover{
+    background: #00bc9b;
+    color: #FFF;
+}
+li{
+    font-weight: 400;
+}
+ul{
+    margin: 0;
+    padding: 0
+}
+.menu li, .menu-txt li {
+    letter-spacing: 0;
+    display: inline-block;
+    margin-right: 0;
+    position: relative;
+}
+.profile-project .menu a {
+    line-height: 42px;
+    height: 42px;
+}
+.menu, .menu-txt {
+    float: left;
+    letter-spacing: -4px;
+    white-space: nowrap;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+.menu a {
+    display: block;
+    padding: 0 20px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    white-space: nowrap;
+}
+.menu a:hover{
+    background: #00bc9b;
+    color: #fff;
+}
+.menu-box .menu-oprtbar, .menu-txt-box .menu-oprtbar {
+    float: right;
+
+}
+.menu-box {
+    background: #FFF;
+    border-bottom: 2px solid #00bc9b;
+    border-top: none;
+}
+.profile-project .menu-box {
+    margin: 0 0 10px;
+}
+.profile-project .menu-oprtbar .btn {
+    padding: 7px 0;
+    margin-right: 15px;
+    margin-top: 6px;
+}
+.menu-box .btn, .menu-box .btn-group {
+    margin: 1px 10px 0 0;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+.btn {
+    right: 1px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0;
+    width: 80px;
+    color: #FFF;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none 0;
+    cursor: pointer;
+    line-height: normal;
+    outline: 0;
+    white-space: nowrap;
+}
+.menu-box:after, .menu-txt-box:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.module-body{
+    padding: 20px;
+    margin: 0 auto;
+}
+.empty-main {
+    min-height: 300px;
+    padding: 100px 0;
+    text-align: center;
+}
+.js-create-project {
+    background-color: #A9A9A9;
+}
+/*.empty-main:before{
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}*/
+.empty-topic-pic {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+.empty-topic-letter {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #666;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group:after, .form-group:before {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.input-section .control-label {
+    padding: 0 15px;
+    font-size: 14px;
+    float: left;
+    width: 80px;
+    line-height: 42px;
+    height: 42px;
+    text-align: right;
+    margin-bottom: 0;
+}
+.input-section .control-label {
+    padding-left: 15px;
+}
+.form-group .control-group {
+    float: left;
+}
+.input-section .control-group {
+    line-height: 42px;
+    height: 42px;
+}
+.control-group {
+    position: relative;
+}
+
+.module-body form{
+    margin-left: 120px;
+}
+.control-label{
+    width: 90px;
+    float: left;
+    line-height: 40px;
+    font-size: 14px;
+}
+.uneditable-input, input[type=password], input[type=email], input[type=text] {
+    border: 1px solid #d4d4d4;
+    color: #34495e;
+    font-family: Lato,sans-serif;
+    font-size: 14px;
+    padding: 8px 5px;
+    width: 240px;
+    height: 42px;
+    border-radius: 3px;
+    outline: 0;
+}
+button, input, optgroup, option, select, textarea {
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+button, input {
+    line-height: normal;
+}
+.col-input-login{
+    margin-left: 100px;
+}
+.btn-block{
+    width: 200px;
+}
+.hide{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

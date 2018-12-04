@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.QuestionBankDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.QuestionBank">
+    <id column="question_id" jdbcType="INTEGER" property="questionId" />
+    <result column="question_context" jdbcType="VARCHAR" property="questionContext" />
+    <result column="question_answer" jdbcType="VARCHAR" property="questionAnswer" />
+    <result column="question_type_company" jdbcType="VARCHAR" property="questionTypeCompany" />
+    <result column="question_type_language" jdbcType="VARCHAR" property="questionTypeLanguage" />
+    <result column="question_answerparsing" jdbcType="VARCHAR" property="questionAnswerparsing" />
+    <result column="question_optionA" jdbcType="VARCHAR" property="questionOptiona" />
+    <result column="question_optionB" jdbcType="VARCHAR" property="questionOptionb" />
+    <result column="question_optionC" jdbcType="VARCHAR" property="questionOptionc" />
+    <result column="question_optionD" jdbcType="VARCHAR" property="questionOptiond" />
+    <result column="question_test_paper_id" jdbcType="INTEGER" property="questionTestPaperId" />
+    <result column="question_status" jdbcType="INTEGER" property="questionStatus" />
+    <result column="question_bank_spare" jdbcType="VARCHAR" property="questionBankSpare" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    question_id, question_context, question_answer, question_type_company, question_type_language, 
+    question_answerparsing, question_optionA, question_optionB, question_optionC, question_optionD, 
+    question_test_paper_id, question_status, question_bank_spare
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from question_bank
+    where question_id = #{questionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from question_bank
+    where question_id = #{questionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.QuestionBank">
+    insert into question_bank (question_id, question_context, question_answer, 
+      question_type_company, question_type_language, 
+      question_answerparsing, question_optionA, 
+      question_optionB, question_optionC, question_optionD, 
+      question_test_paper_id, question_status, question_bank_spare
+      )
+    values (#{questionId,jdbcType=INTEGER}, #{questionContext,jdbcType=VARCHAR}, #{questionAnswer,jdbcType=VARCHAR}, 
+      #{questionTypeCompany,jdbcType=VARCHAR}, #{questionTypeLanguage,jdbcType=VARCHAR}, 
+      #{questionAnswerparsing,jdbcType=VARCHAR}, #{questionOptiona,jdbcType=VARCHAR}, 
+      #{questionOptionb,jdbcType=VARCHAR}, #{questionOptionc,jdbcType=VARCHAR}, #{questionOptiond,jdbcType=VARCHAR}, 
+      #{questionTestPaperId,jdbcType=INTEGER}, #{questionStatus,jdbcType=INTEGER}, #{questionBankSpare,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.QuestionBank">
+    insert into question_bank
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="questionId != null">
+        question_id,
+      </if>
+      <if test="questionContext != null">
+        question_context,
+      </if>
+      <if test="questionAnswer != null">
+        question_answer,
+      </if>
+      <if test="questionTypeCompany != null">
+        question_type_company,
+      </if>
+      <if test="questionTypeLanguage != null">
+        question_type_language,
+      </if>
+      <if test="questionAnswerparsing != null">
+        question_answerparsing,
+      </if>
+      <if test="questionOptiona != null">
+        question_optionA,
+      </if>
+      <if test="questionOptionb != null">
+        question_optionB,
+      </if>
+      <if test="questionOptionc != null">
+        question_optionC,
+      </if>
+      <if test="questionOptiond != null">
+        question_optionD,
+      </if>
+      <if test="questionTestPaperId != null">
+        question_test_paper_id,
+      </if>
+      <if test="questionStatus != null">
+        question_status,
+      </if>
+      <if test="questionBankSpare != null">
+        question_bank_spare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="questionId != null">
+        #{questionId,jdbcType=INTEGER},
+      </if>
+      <if test="questionContext != null">
+        #{questionContext,jdbcType=VARCHAR},
+      </if>
+      <if test="questionAnswer != null">
+        #{questionAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="questionTypeCompany != null">
+        #{questionTypeCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="questionTypeLanguage != null">
+        #{questionTypeLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="questionAnswerparsing != null">
+        #{questionAnswerparsing,jdbcType=VARCHAR},
+      </if>
+      <if test="questionOptiona != null">
+        #{questionOptiona,jdbcType=VARCHAR},
+      </if>
+      <if test="questionOptionb != null">
+        #{questionOptionb,jdbcType=VARCHAR},
+      </if>
+      <if test="questionOptionc != null">
+        #{questionOptionc,jdbcType=VARCHAR},
+      </if>
+      <if test="questionOptiond != null">
+        #{questionOptiond,jdbcType=VARCHAR},
+      </if>
+      <if test="questionTestPaperId != null">
+        #{questionTestPaperId,jdbcType=INTEGER},
+      </if>
+      <if test="questionStatus != null">
+        #{questionStatus,jdbcType=INTEGER},
+      </if>
+      <if test="questionBankSpare != null">
+        #{questionBankSpare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.QuestionBank">
+    update question_bank
+    <set>
+      <if test="questionContext != null">
+        question_context = #{questionContext,jdbcType=VARCHAR},
+      </if>
+      <if test="questionAnswer != null">
+        question_answer = #{questionAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="questionTypeCompany != null">
+        question_type_company = #{questionTypeCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="questionTypeLanguage != null">
+        question_type_language = #{questionTypeLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="questionAnswerparsing != null">
+        question_answerparsing = #{questionAnswerparsing,jdbcType=VARCHAR},
+      </if>
+      <if test="questionOptiona != null">
+        question_optionA = #{questionOptiona,jdbcType=VARCHAR},
+      </if>
+      <if test="questionOptionb != null">
+        question_optionB = #{questionOptionb,jdbcType=VARCHAR},
+      </if>
+      <if test="questionOptionc != null">
+        question_optionC = #{questionOptionc,jdbcType=VARCHAR},
+      </if>
+      <if test="questionOptiond != null">
+        question_optionD = #{questionOptiond,jdbcType=VARCHAR},
+      </if>
+      <if test="questionTestPaperId != null">
+        question_test_paper_id = #{questionTestPaperId,jdbcType=INTEGER},
+      </if>
+      <if test="questionStatus != null">
+        question_status = #{questionStatus,jdbcType=INTEGER},
+      </if>
+      <if test="questionBankSpare != null">
+        question_bank_spare = #{questionBankSpare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where question_id = #{questionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.QuestionBank">
+    update question_bank
+    set question_context = #{questionContext,jdbcType=VARCHAR},
+      question_answer = #{questionAnswer,jdbcType=VARCHAR},
+      question_type_company = #{questionTypeCompany,jdbcType=VARCHAR},
+      question_type_language = #{questionTypeLanguage,jdbcType=VARCHAR},
+      question_answerparsing = #{questionAnswerparsing,jdbcType=VARCHAR},
+      question_optionA = #{questionOptiona,jdbcType=VARCHAR},
+      question_optionB = #{questionOptionb,jdbcType=VARCHAR},
+      question_optionC = #{questionOptionc,jdbcType=VARCHAR},
+      question_optionD = #{questionOptiond,jdbcType=VARCHAR},
+      question_test_paper_id = #{questionTestPaperId,jdbcType=INTEGER},
+      question_status = #{questionStatus,jdbcType=INTEGER},
+      question_bank_spare = #{questionBankSpare,jdbcType=VARCHAR}
+    where question_id = #{questionId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectCount" resultType="java.lang.Integer">
+    select count(question_id) from question_bank
+  </select>
+  <select id="selectUserByPage" parameterType="com.rush.util.PageModel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question_bank
+    limit #{startRecord},#{pageSize}
+  </select>
+  <select id="selectByQuestionPaperId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question_bank where question_bank_spare = #{questionPaperId}
+  </select>
+  <select id="selectQuestionByCompanyPaperId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List"/>
+    from question_bank
+    where question_test_paper_id = #{companyPaperId,jdbcType=INTEGER};
+  </select>
+  <select id="selectAllAnswer" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select question_answer
+    from question_bank
+    where question_test_paper_id = #{companyPaperId,jdbcType=INTEGER};
+  </select>
+
+  <select id="selectQuestionByQuestionPaperId" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select question_id
+    from question_bank
+    where question_bank_spare=#{questionBankSpare}
+  </select>
+  <select id="selectAllQuestions" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from question_bank
+    where question_bank_spare is not null
+  </select>
+
+  <select id="selectAllQuestionsV2" resultType="com.rush.util.OnlineQuestion">
+    select qb.question_id,qb.question_context,qb.question_type_language,qp.question_paper_id,qp.question_paper_title
+    from question_bank qb join question_paper qp
+    on qb.question_bank_spare=qp.question_paper_id
+  </select>
+
+
+  <!--************************-->
+  <insert id="addQuestion" parameterType="com.rush.entity.QuestionBank">
+       insert into question_bank (question_id, question_context, question_answer,
+      question_type_company, question_type_language,
+      question_answerparsing, question_optionA,
+      question_optionB, question_optionC, question_optionD,
+      question_test_paper_id, question_status, question_bank_spare
+      )
+    values (#{questionId,jdbcType=INTEGER}, #{questionContext,jdbcType=VARCHAR}, #{questionAnswer,jdbcType=VARCHAR},
+      #{questionTypeCompany,jdbcType=VARCHAR}, #{questionTypeLanguage,jdbcType=VARCHAR},
+      #{questionAnswerparsing,jdbcType=VARCHAR}, #{questionOptiona,jdbcType=VARCHAR},
+      #{questionOptionb,jdbcType=VARCHAR}, #{questionOptionc,jdbcType=VARCHAR}, #{questionOptiond,jdbcType=VARCHAR},
+      #{questionTestPaperId,jdbcType=INTEGER}, #{questionStatus,jdbcType=INTEGER}, #{questionBankSpare,jdbcType=VARCHAR}
+      )
+    </insert>
+  <delete id="removeQuestion" parameterType="java.lang.Integer">
+        delete
+       from  question_bank
+        question_id = #{questionId,jdbcType=INTEGER}
+    </delete>
+  <select id="getAllQuestion" parameterType="com.rush.util.PageModel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question_bank
+    where question_type_company = #{companyName}
+    limit #{startRecord},#{pageSize}
+  </select>
+  <select id="getQuestionCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(question_id)
+        from question_bank where question_type_company = #{questionTypeCompany}
+    </select>
+</mapper>

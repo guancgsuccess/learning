@@ -1,0 +1,113 @@
+#head{
+    z-index: 200;
+}
+
+/****************************====main-bottom-right====*********************/
+
+#personal-info .main-bottom-right{
+    min-height: 500px;
+    float: right;
+    width: 68%;
+}
+
+
+#personal-info .main-bottom-right .main-bottom-content{
+    margin-top: 40px;
+    width: 100%;
+}
+
+#personal-info .main-bottom-right .main-bottom-content .paw-mod{
+    float: left;
+    width: 50%;
+    height: 161px;
+    /*background-color: aqua;*/
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+#personal-info .main-bottom-right .main-bottom-content .paw-mod .paw-mod-detail{
+    width: 80%;
+    height: 90%;
+    /*background-color: gold;*/
+    margin: 0 auto;
+    border: 1px solid rgba(110,120,150,3.0);
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+#personal-info .main-bottom-right .main-bottom-content .paw-mod .paw-mod-detail:hover{
+    border: 2px solid rgba(0,0,0,3.0);
+}
+
+#personal-info .paw-mod-detail .paw-mod-top{
+    width: 100%;
+    height: 30%;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #DCDCDC;
+}
+
+#personal-info .paw-mod-detail .paw-mod-top h4{
+    text-align: center;
+    float: left;
+}
+
+#personal-info .paw-mod-detail .paw-mod-top h4 a{
+    color: #3d444c;
+}
+
+#personal-info .paw-mod-detail .paw-mod-top h4 a:hover{
+    color: #4dbfa1;
+}
+
+#personal-info .paw-mod-detail .paw-mod-top span{
+    font-weight: bold;
+    color: #008b8b;
+    float: right;
+}
+
+#personal-info .paw-mod-detail .paw-mod-bottom{
+    width: 100%;
+    height: 70%;
+}
+
+#personal-info .paw-mod-detail .paw-mod-bottom .web-statistics{
+    width: 100%;
+    height: 100%;
+}
+
+#personal-info .paw-mod-detail .paw-mod-bottom .web-statistics li{
+    color: #888888;
+    float: left;
+    width: 25%;
+    height: 100%;
+    /*background-color: gold;*/
+    text-align: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+
+/*#personal-info .skill{*/
+    /*width: 100%;*/
+    /*height: 200px;*/
+    /*float: left;*/
+    /*padding-bottom: 20px;*/
+/*}*/
+
+/*#personal-info .skill .skill-detail{*/
+    /*width: 90%;*/
+    /*height: 200px;*/
+    /*border-radius: 10px;*/
+    /*border: 1px solid black;*/
+    /*box-sizing: border-box;*/
+    /*margin: 0 auto;*/
+/*}*/
+
+
+
+

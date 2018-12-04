@@ -1,0 +1,158 @@
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+dl, dt, h3,dd,input{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    display: block;
+}
+.module-body {
+    padding: 20px;
+}
+.profile-setting .module-body {
+     padding: 10px 20px 20px;
+}
+.profile-caption {
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #d4d4d4;
+    overflow: hidden;
+}
+.profile-caption .info-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 13px;
+    line-height: 22px;
+    display: inline-block;
+}
+.edit-box .btn-info-cancel, .edit-box .btn-info-save, .edit-box .info-edit-box {
+    display: block;
+}
+.info-box dl, .info-edit-box dl {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.info-box dt, .info-edit-box dt {
+    float: left;
+    width: 118px;
+    text-align: right;
+    line-height: 2.8;
+}
+.info-box dl, .info-edit-box dl {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.info-box dd {
+    color: #999;
+}
+.info-box dd, .info-edit-box dd {
+    margin-left: 140px;
+    line-height: 2.8;
+}
+.control-group {
+    position: relative;
+    width: 260px;
+}
+dd{
+    display: block;
+    -webkit-margin-start:40px;
+}
+input[type=password],textarea {
+    border: 1px solid #d4d4d4;
+    color: #34495e;
+    font-family: Lato,sans-serif;
+    font-size: 14px;
+    padding: 8px 5px 7px;
+    width: 248px;
+    height: 42px;
+    border-radius: 3px;
+    outline: 0;
+}
+input{
+    line-height: normal;
+}
+button, input, optgroup, option, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+.input-icon.fui-cross {
+    background: #ff5400;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+.control-group>.input-icon {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+    vertical-align: middle;
+    font-size: 20px;
+    background: #FFF;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    line-height: 20px;
+    display: none;
+}
+.checkbox .icons, .fui-arrow-left, .fui-arrow-right, .fui-calendar-solid, .fui-chat, .fui-check, .fui-check-inverted, .fui-check-inverted-2, .fui-checkbox-checked, .fui-checkbox-unchecked, .fui-cmd, .fui-cross, .fui-eye, .fui-gear, .fui-heart, .fui-list, .fui-location, .fui-lock, .fui-mail, .fui-new, .fui-pause, .fui-photo, .fui-play, .fui-plus, .fui-radio-checked, .fui-radio-unchecked, .fui-search, .fui-time, .fui-user, .fui-video, .fui-volume {
+    display: inline-block;
+    font-family: Flat-UI-Icons;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+.input-icon.fui-check-inverted {
+    color: #25bb9b;
+    display: none;
+}
+.control-group>.input-icon {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+    vertical-align: middle;
+    font-size: 20px;
+    background: #FFF;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    line-height: 20px;
+    display: none;
+}
+.input-tip {
+    position: absolute;
+    left: 0;
+    bottom: -16px;
+    display: none;
+    font-size: 14px;
+    line-height: 14px;
+}
+.edit-box .btn-info-cancel, .edit-box .btn-info-save, .edit-box .info-edit-box {
+    display: block;
+}
+.btn-lg {
+    width: 260px;
+    padding: 13px 0 12px;
+}
+.btn-primary {
+    background: #00BC9B;
+}
+
+
+
+
+
+

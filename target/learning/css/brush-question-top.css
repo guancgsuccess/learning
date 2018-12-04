@@ -1,0 +1,43 @@
+#head{
+    z-index: 200;
+}
+#ajax-brush-questions .menu-box{
+    width: 100%;
+    /*height: 44px;*/
+    border-bottom: 2px solid #00bc9b;
+    box-sizing: border-box;
+}
+
+#ajax-brush-questions .menu-box .profile-menu{
+    width: 378px;
+    overflow: hidden;
+}
+
+#ajax-brush-questions .menu-box .profile-menu li{
+    width: 94px;
+    box-sizing: border-box;
+    /*border: 1px solid red;*/
+    line-height: 42px;
+    text-align: center;
+    font-size: 14px;
+    float: left;
+}
+
+#ajax-brush-questions .menu-box .profile-menu li a{
+    color: #2A2F35;
+    display: block;
+}
+
+#ajax-brush-questions .menu-box .profile-menu li a:hover{
+    color: #FFFFFF!important;
+    background-color: #00bc9b;
+}
+
+#ajax-brush-questions .menu-box .profile-menu  li:first-of-type{
+    background-color: #00bc9b;
+    margin-right: 2px;
+}
+
+#ajax-brush-questions .menu-box .profile-menu  li:first-of-type a{
+    color: #FFFFFF;
+}

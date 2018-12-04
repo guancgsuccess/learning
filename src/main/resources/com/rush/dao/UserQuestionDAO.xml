@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.UserQuestionDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.UserQuestion">
+    <id column="user_question_id" jdbcType="INTEGER" property="userQuestionId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="question_id" jdbcType="INTEGER" property="questionId" />
+    <result column="question_correct" jdbcType="INTEGER" property="questionCorrect" />
+    <result column="question_answered_status" jdbcType="INTEGER" property="questionAnsweredStatus" />
+    <result column="user_question_spare" jdbcType="VARCHAR" property="userQuestionSpare" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_question_id, user_id, question_id, question_correct, question_answered_status, 
+    user_question_spare
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_question
+    where user_question_id = #{userQuestionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_question
+    where user_question_id = #{userQuestionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.UserQuestion">
+    insert into user_question (user_question_id, user_id, question_id, 
+      question_correct, question_answered_status, 
+      user_question_spare)
+    values (#{userQuestionId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{questionId,jdbcType=INTEGER}, 
+      #{questionCorrect,jdbcType=INTEGER}, #{questionAnsweredStatus,jdbcType=INTEGER}, 
+      #{userQuestionSpare,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.UserQuestion">
+    insert into user_question
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userQuestionId != null">
+        user_question_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="questionId != null">
+        question_id,
+      </if>
+      <if test="questionCorrect != null">
+        question_correct,
+      </if>
+      <if test="questionAnsweredStatus != null">
+        question_answered_status,
+      </if>
+      <if test="userQuestionSpare != null">
+        user_question_spare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userQuestionId != null">
+        #{userQuestionId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="questionId != null">
+        #{questionId,jdbcType=INTEGER},
+      </if>
+      <if test="questionCorrect != null">
+        #{questionCorrect,jdbcType=INTEGER},
+      </if>
+      <if test="questionAnsweredStatus != null">
+        #{questionAnsweredStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userQuestionSpare != null">
+        #{userQuestionSpare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.UserQuestion">
+    update user_question
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="questionId != null">
+        question_id = #{questionId,jdbcType=INTEGER},
+      </if>
+      <if test="questionCorrect != null">
+        question_correct = #{questionCorrect,jdbcType=INTEGER},
+      </if>
+      <if test="questionAnsweredStatus != null">
+        question_answered_status = #{questionAnsweredStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userQuestionSpare != null">
+        user_question_spare = #{userQuestionSpare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_question_id = #{userQuestionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.UserQuestion">
+    update user_question
+    set user_id = #{userId,jdbcType=INTEGER},
+      question_id = #{questionId,jdbcType=INTEGER},
+      question_correct = #{questionCorrect,jdbcType=INTEGER},
+      question_answered_status = #{questionAnsweredStatus,jdbcType=INTEGER},
+      user_question_spare = #{userQuestionSpare,jdbcType=VARCHAR}
+    where user_question_id = #{userQuestionId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByUserIdAndQuestionId" parameterType="com.rush.entity.UserQuestion" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_question
+    where user_id = #{userId} and question_id = #{questionId}
+  </select>
+  <select id="selectForUserQuestion" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_question
+    where user_id = #{userId}
+  </select>
+
+  <!--根据用户id查询所有-->
+  <select id="selectUserQuestionsByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List"/>
+    from user_question
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAllCorrectQuestionsByUserId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select count(question_correct)
+    from user_question
+    where question_correct=0 and user_id=#{userId}
+  </select>
+
+  <select id="selectAllCompleteQuestionsByUserId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select count(question_answered_status)
+    from user_question
+    where question_answered_status=0 and user_id=#{userId}
+  </select>
+
+
+  <select id="selectUserQuestionByQuestionIdAndUserId" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List"/>
+    from user_question
+    where question_id = #{questionId,jdbcType=INTEGER} and user_id=#{userId}
+  </select>
+
+  <!--新修改-->
+  <select id="selectAllWrongQuestionsByUserId" parameterType="java.lang.Integer" resultType="com.rush.util.WrongQuestion">
+    select uq.question_id,uq.question_correct,uq.question_answered_status,qb.question_context,qb.question_type_language,qp.question_paper_id,qp.question_paper_title
+    from user_question uq join question_bank qb
+    on uq.question_id=qb.question_id
+    join question_paper qp
+    on qb.question_bank_spare=qp.question_paper_id
+    where uq.user_id=#{userId} and uq.question_correct=1
+  </select>
+</mapper>

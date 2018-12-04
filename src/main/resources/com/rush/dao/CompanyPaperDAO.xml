@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.CompanyPaperDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.CompanyPaper">
+    <id column="company_paper_id" jdbcType="INTEGER" property="companyPaperId" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="questions_number" jdbcType="INTEGER" property="questionsNumber" />
+    <result column="company_paper_status" jdbcType="INTEGER" property="companyPaperStatus" />
+    <result column="company_paper_spare" jdbcType="VARCHAR" property="companyPaperSpare" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    company_paper_id, company_id, questions_number, company_paper_status, company_paper_spare
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from company_paper
+    where company_paper_id = #{companyPaperId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from company_paper
+    where company_paper_id = #{companyPaperId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.CompanyPaper">
+    insert into company_paper (company_paper_id, company_id, questions_number, 
+      company_paper_status, company_paper_spare)
+    values (#{companyPaperId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{questionsNumber,jdbcType=INTEGER}, 
+      #{companyPaperStatus,jdbcType=INTEGER}, #{companyPaperSpare,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.CompanyPaper">
+    insert into company_paper
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyPaperId != null">
+        company_paper_id,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="questionsNumber != null">
+        questions_number,
+      </if>
+      <if test="companyPaperStatus != null">
+        company_paper_status,
+      </if>
+      <if test="companyPaperSpare != null">
+        company_paper_spare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyPaperId != null">
+        #{companyPaperId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="questionsNumber != null">
+        #{questionsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="companyPaperStatus != null">
+        #{companyPaperStatus,jdbcType=INTEGER},
+      </if>
+      <if test="companyPaperSpare != null">
+        #{companyPaperSpare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.CompanyPaper">
+    update company_paper
+    <set>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="questionsNumber != null">
+        questions_number = #{questionsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="companyPaperStatus != null">
+        company_paper_status = #{companyPaperStatus,jdbcType=INTEGER},
+      </if>
+      <if test="companyPaperSpare != null">
+        company_paper_spare = #{companyPaperSpare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where company_paper_id = #{companyPaperId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.CompanyPaper">
+    update company_paper
+    set company_id = #{companyId,jdbcType=INTEGER},
+      questions_number = #{questionsNumber,jdbcType=INTEGER},
+      company_paper_status = #{companyPaperStatus,jdbcType=INTEGER},
+      company_paper_spare = #{companyPaperSpare,jdbcType=VARCHAR}
+    where company_paper_id = #{companyPaperId,jdbcType=INTEGER}
+  </update>
+  <select id="selectCompanyPaperByCompanyId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select company_paper_id
+    from company_paper
+    where company_id = #{companyId,jdbcType=INTEGER} and company_paper_status = 0;
+  </select>
+  <select id="selectAllCompanyByCompanyId" parameterType="com.rush.util.PaginationUtil" resultType="java.lang.Integer">
+    select company_id
+    from company_paper
+    limit #{startRecord},#{pageSize};
+  </select>
+  <select id="selectCompanyPaperDeadlineByCompanyPaperId" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select company_paper_spare
+    from company_paper
+    where company_paper_id = #{companyPaperId,jdbcType=INTEGER}
+  </select>
+  <select id="selectCompanyCount" resultType="java.lang.Integer">
+    select count(company_paper_id)
+    from company_paper
+    where company_paper_status = 0;
+  </select>
+</mapper>

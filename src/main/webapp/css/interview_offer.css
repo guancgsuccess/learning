@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: #eee;
+    font-family: "微软雅黑 Light";
+}
+#head{
+    z-index: 200;
+}
+#interview_offer{
+    margin-left: auto;
+    margin-right: auto;
+    height: 60%;
+    width: 70%;
+}
+#interview_offer_icon1{
+    background: url("../image/offer_icon1.png");
+    height: 210px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 100%;
+}
+#interview_offer_icon2{
+    background: url("../image/offer_icon2.png");
+    height: 280px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 100%;
+}
+.interview_offer_title{
+    height: 30px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    text-align: center;
+    font-size: x-large;
+}
+.interview_offer_score{
+    height: 23px;
+    width: 90%;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: large;
+    text-align: center;
+}
+#interview_offer_footer{
+    height: 23px;
+    width: 90%;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: large;
+    text-align: center;
+}

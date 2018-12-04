@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+-->
+
+    <!-- 静态资源处理1-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+    <!--
+    【注意】：
+        classpath和classpath*区别：
+        classpath：只会到你的class路径中查找找文件。
+        classpath*：不仅包含class路径，还包括jar文件中（class路径）进行查找。
+    -->
+
+
+    <!--===========================第一步：配置IoC容器【基于注解】=============================-->
+
+    <!--1.这是一条向Spring容器中注册AutowiredAnnotationBeanPostProcessor,CommonAnnotationBeanPostProcessor
+        PersistenceAnnotationBeanPostProcessor,RequiredAnnotationBeanPostProcessor这4个BeanPostProcessor.
+        注册这4个BeanPostProcessor的作用，就是为了你的系统能够识别相应的注解。-->
+    <context:annotation-config></context:annotation-config>
+
+    <!--2.配置扫描包路径【可以省略上面的配置】-->
+
+    <!--2.1 扫描dao接口-->
+    <context:component-scan base-package="com.rush.dao"></context:component-scan>
+
+    <!--2.2 扫描service接口-->
+    <context:component-scan base-package="com.rush.service"></context:component-scan>
+
+    <context:component-scan base-package="com.rush.*"></context:component-scan>
+    <!--3.引入dbconfig.properties配置文件，【注意classpath不可少】-->
+    <context:property-placeholder location="classpath:dbconfig.properties"></context:property-placeholder>
+    <context:property-placeholder location="classpath:redis.properties"/>
+    <!-- redis数据源 -->
+    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property value="300" name="maxIdle"/>
+        <property value="600" name="maxTotal"/>
+        <property value="1000" name="maxWaitMillis"/>
+        <property value="true" name="testOnBorrow"/>
+    </bean>
+    <!-- Spring-redis连接池管理工厂 -->
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:password="123456" p:port="6379" p:host-name="47.106.38.176"/>
+    <!-- 使用中间类解决RedisCache.jedisConnectionFactory的静态注入，从而使MyBatis实现第三方缓存 -->
+    <bean id="redisCacheTransfer" class="com.rush.util.RedisCacheTransfer">
+        <property name="jedisConnectionFactory" ref="jedisConnectionFactory"/>
+    </bean>
+
+    <!--4.注入DataSource对象【数据源】，需要依赖dbconfig.properties-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!--驱动-->
+        <property name="driverClassName" value="${driver}"/>
+        <!--url-->
+        <property name="url" value="${url}"/>
+        <!--username-->
+        <property name="username" value="${user}"/>
+        <!--password-->
+        <property name="password" value="${password}"/>
+    </bean>
+
+    <!--==============================第二步：配置mybatis=========================================-->
+
+    <!--5.注入SqlSessionFactory对象，依赖DataSource对象，
+    【在单独的mybatis中dataSource和mapper映射文件都是配置在mybatis-config.xml中的】-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--5.1依赖DataSource-->
+        <property name="dataSource" ref="dataSourceDbcp"/>
+        <!--5.2依赖mybatis-config.xml,【注意classpath不可少】-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--5.3依赖映射文件-->
+        <property name="mapperLocations" value="classpath:com/rush/dao/*DAO.xml"/>
+    </bean>
+
+    <!--6.配置dao层的代理，这样可以不实现dao接口从而简化操作，底层是反射的原理，
+    注入MapperScannerConfigurer对象，依赖于SqlSessionFactory对象-->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--6.1 dao层接口所在的包-->
+        <property name="basePackage" value="com.rush.dao"/>
+        <!--6.2 依赖注入SqlSessionFactory对象-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <!--================================第三步：配置事务管理AOP==============================================-->
+
+    <!--7.注入事务对象DataSourceTransactionManager，也需要依赖于DataSource对象-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceDbcp"></property>
+    </bean>
+    <!-- 然后配置事务的增强-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <!-- 做事务操作-->
+        <tx:attributes>
+            <!-- 设置进行事务操作的方法匹配规则，就是对什么方法进行事务操作，这里可以直接写方法名，也可以直接写*，表示对所有方法开启事务支持-->
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--8.通过AOP实现事务的管理横切到业务【service】中-->
+    <aop:config>
+        <!--8.1 配置切点，切点即目标方法-->
+        <aop:pointcut id="transaction" expression="execution(* com.rush.service..*.*(..))"></aop:pointcut>
+        <!--8.2 配置增强实现，即系统业务的实现功能-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="transaction"></aop:advisor>
+    </aop:config>
+
+    <!--9.配置事务的传播性-->
+    <tx:advice transaction-manager="transactionManager" id="tx">
+        <tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED" read-only="false" rollback-for="true"/>
+            <tx:method name="modify*" propagation="REQUIRED" read-only="false" rollback-for="true"/>
+            <tx:method name="remove*" propagation="REQUIRED" read-only="false" rollback-for="true"/>
+            <tx:method name="findOne*" propagation="REQUIRED" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--拦截器 -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="userLoginInterceptor"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="userLoginInterceptor" class="com.rush.interceptor.UserLoginInterceptor"/>
+
+    <!-- 数据库连接池配置 -->
+    <bean id="dataSourceDbcp" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${driver}"></property>
+        <property name="url" value="${url}"></property>
+        <property name="username" value="${user}"></property>
+        <property name="password" value="${password}"></property>
+        <property name="minIdle" value="10"></property>
+        <property name="maxIdle" value="20"></property>
+        <property name="maxWaitMillis" value="6000"></property>
+        <property name="maxTotal" value="25"></property>
+        <property name="initialSize" value="8"></property>
+        <property name="minEvictableIdleTimeMillis" value="60000"></property>
+        <property name="removeAbandonedOnBorrow" value="true"></property>
+        <property name="removeAbandonedTimeout" value="60"></property>
+        <property name="timeBetweenEvictionRunsMillis" value="120000"></property>
+        <!--<property name="validationQuery" value="slect 1"></property>-->
+        <property name="testOnBorrow" value="false"></property>
+        <property name="testWhileIdle" value="true"></property>
+        <property name="numTestsPerEvictionRun" value="25"></property>
+    </bean>
+
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <!-- 多个拦截器，按顺序执行 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/"/> <!-- 表示拦截所有的url包括子url路径 -->
+            <bean class="com.rush.interceptor.UserLoginInterceptor"/>
+        </mvc:interceptor>
+        <!--<mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.rush.interceptor.UserLoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.rush.interceptor.UserLoginInterceptor"/>
+        </mvc:interceptor>-->
+    </mvc:interceptors>
+
+
+
+</beans>

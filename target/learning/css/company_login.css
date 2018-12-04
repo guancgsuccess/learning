@@ -1,0 +1,309 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #333;
+}
+a, ins {
+    text-decoration: none;
+}
+div {
+    display: block;
+}
+li,ul{
+    list-style: none;
+}
+body, dt, dt, dl, th, ul, li, form, input,img{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+body {
+    font: 12px/1.5 arial,STHeiti,'Microsoft YaHei',\5b8b\4f53;
+    word-wrap: break-word;
+}
+.nk-container {
+    background: #eee;
+    position: relative;
+    height: auto;
+    min-height: 100%;
+}
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.nk-main {
+    margin: 0 auto;
+    width: 960px;
+    padding-top: 70px;
+    padding-bottom: 250px;
+}
+.clearfix:after, .clearfix:before {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.wrapper {
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background: #fff;
+    overflow: hidden;
+}
+.tabbed li.tab-selected {
+    background: #FFF;
+    border-top: 2px solid #25bb9b;
+}
+.tabbed li {
+    float: left;
+    background: #f3f4f5;
+    border-top: 2px solid #f3f4f5;
+    width: 50%;
+    text-align: center;
+    height: 83px;
+    line-height: 83px;
+}
+.tabbed a {
+    color: #666;
+    font-size: 24px;
+    display: block;
+}
+.tab-selected a, .tabbed a:hover {
+    text-decoration: none;
+    color: #25bb9b;
+}
+.tab-selected .tab-login, a:hover .tab-login {
+    background-position: 0 -174px;
+}
+.tab-selected .tab-reg, a:hover .tab-reg {
+    background-position: 0 -116px;
+}
+.tab-login, .tab-reg {
+    background: url(//static.nowcoder.com/company/images/img/icons/reg-login.png) no-repeat;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: text-bottom;
+    margin-right: 15px;
+}
+.tab-reg {
+    background-position: 0 -58px;
+}
+.wrapper-content {
+    border-top: 1px solid #ededed;
+    margin: 0 20px;
+    padding: 60px 70px 80px;
+}
+.input-section {
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group:after, .form-group:before {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.input-section .control-label {
+    padding-left: 15px;
+}
+.input-section .control-label {
+    padding: 0 15px;
+    font-size: 14px;
+    float: left;
+    width: 80px;
+    line-height: 42px;
+    height: 42px;
+    text-align: right;
+    margin-bottom: 0;
+}
+label {
+    cursor: default;
+}
+
+.form-group .control-group {
+    float: left;
+}
+.control-group {
+    position: relative;
+    width: 260px;
+}
+.input-section .input-rqcode-box input {
+    height: 42px;
+}
+.input-section input{
+    height: 42px;
+}
+.uneditable-input, input[type=password], input[type=email], input[type=text], textarea {
+    border: 1px solid #d4d4d4;
+    color: #34495e;
+    font-family: Lato,sans-serif;
+    font-size: 14px;
+    padding: 8px 5px;
+    width: 100%;
+    /*height: 22px;*/
+    /*********************/
+    border-radius: 3px;
+    outline: 0;
+}
+
+.input-section .control-group {
+    line-height: 42px;
+    height: 42px;
+}
+button, input {
+}
+button, input {
+    line-height: normal;
+}
+.control-group>.input-icon {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+    vertical-align: middle;
+    font-size: 20px;
+    background: #FFF;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    line-height: 20px;
+    display: none;
+}
+.input-icon.fui-cross {
+    background: #ff5400;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+.checkbox .icons, .fui-arrow-left, .fui-arrow-right, .fui-calendar-solid, .fui-chat, .fui-check, .fui-check-inverted, .fui-check-inverted-2, .fui-checkbox-checked, .fui-checkbox-unchecked, .fui-cmd, .fui-cross, .fui-eye, .fui-gear, .fui-heart, .fui-list, .fui-location, .fui-lock, .fui-mail, .fui-new, .fui-pause, .fui-photo, .fui-play, .fui-plus, .fui-radio-checked, .fui-radio-unchecked, .fui-search, .fui-time, .fui-user, .fui-video, .fui-volume {
+    display: inline-block;
+    font-family: Flat-UI-Icons;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+.input-icon.fui-check-inverted {
+    color: #25bb9b;
+    display: none;
+}
+.input-tip {
+    position: absolute;
+    left: 0;
+    bottom: -16px;
+    display: none;
+    font-size: 14px;
+    line-height: 14px;
+}
+.input-tip {
+    color: #ff5400;
+}
+.input-section .input-rqcode-box {
+    position: relative;
+}
+
+button, input, optgroup, option, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+.rq-img img {
+    display: block;
+    height: 40px;
+    width: 100%;
+}
+.rq-img {
+    width: 80px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    right: 40px;
+    top: 1px;
+    overflow: hidden;
+}
+fieldset, img {
+    border: 0;
+}
+.input-rqcode-box .fui-cross {
+    right: 125px;
+}
+.input-rqcode-box .input-tip {
+    bottom: -18px;
+}
+.keep-pwd {
+    margin-left: 105px;
+    float: left;
+}
+.forget-pwd {
+    float: right;
+    color: #67cab2!important;
+    font-size: 14px;
+}
+.keep-pwd label {
+    font-size: 14px;
+    margin: 0;
+    color: #999;
+}
+.keep-pwd input {
+    width: auto;
+}
+.col-input-login {
+    text-align: center;
+    font-size: 14px;
+}
+.col-input-login {
+    margin-left: 110px;
+    width: 258px;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0;
+    color: #FFF;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none 0;
+    cursor: pointer;
+    line-height: normal;
+    outline: 0;
+    white-space: nowrap;
+}
+.btn-primary {
+    background: #00BC9B;
+}
+.btn-primary:hover{
+    background: #008B8B;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+

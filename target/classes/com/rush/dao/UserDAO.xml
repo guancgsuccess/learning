@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.UserDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
+    <result column="user_gender" jdbcType="VARCHAR" property="userGender" />
+    <result column="user_age" jdbcType="INTEGER" property="userAge" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    <result column="user_image" jdbcType="VARCHAR" property="userImage" />
+    <result column="user_real_name" jdbcType="VARCHAR" property="userRealName" />
+    <result column="user_idcard" jdbcType="VARCHAR" property="userIdcard" />
+    <result column="user_address" jdbcType="VARCHAR" property="userAddress" />
+    <result column="user_school" jdbcType="VARCHAR" property="userSchool" />
+    <result column="user_work_experience" jdbcType="VARCHAR" property="userWorkExperience" />
+    <result column="user_register_time" jdbcType="TIMESTAMP" property="userRegisterTime" />
+    <result column="user_status" jdbcType="INTEGER" property="userStatus" />
+    <result column="user_spare" jdbcType="VARCHAR" property="userSpare" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, user_name, user_phone, user_password, user_gender, user_age, user_email, 
+    user_image, user_real_name, user_idcard, user_address, user_school, user_work_experience, 
+    user_register_time, user_status, user_spare
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.User">
+    insert into user (user_id, user_name, user_phone, 
+      user_password, user_gender, user_age, 
+      user_email, user_image, user_real_name, 
+      user_idcard, user_address, user_school, 
+      user_work_experience, user_register_time, 
+      user_status, user_spare)
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, 
+      #{userPassword,jdbcType=VARCHAR}, #{userGender,jdbcType=VARCHAR}, #{userAge,jdbcType=INTEGER}, 
+      #{userEmail,jdbcType=VARCHAR}, #{userImage,jdbcType=VARCHAR}, #{userRealName,jdbcType=VARCHAR}, 
+      #{userIdcard,jdbcType=VARCHAR}, #{userAddress,jdbcType=VARCHAR}, #{userSchool,jdbcType=VARCHAR}, 
+      #{userWorkExperience,jdbcType=VARCHAR}, #{userRegisterTime,jdbcType=TIMESTAMP}, 
+      #{userStatus,jdbcType=INTEGER}, #{userSpare,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="userPassword != null">
+        user_password,
+      </if>
+      <if test="userGender != null">
+        user_gender,
+      </if>
+      <if test="userAge != null">
+        user_age,
+      </if>
+      <if test="userEmail != null">
+        user_email,
+      </if>
+      <if test="userImage != null">
+        user_image,
+      </if>
+      <if test="userRealName != null">
+        user_real_name,
+      </if>
+      <if test="userIdcard != null">
+        user_idcard,
+      </if>
+      <if test="userAddress != null">
+        user_address,
+      </if>
+      <if test="userSchool != null">
+        user_school,
+      </if>
+      <if test="userWorkExperience != null">
+        user_work_experience,
+      </if>
+      <if test="userRegisterTime != null">
+        user_register_time,
+      </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
+      <if test="userSpare != null">
+        user_spare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userGender != null">
+        #{userGender,jdbcType=VARCHAR},
+      </if>
+      <if test="userAge != null">
+        #{userAge,jdbcType=INTEGER},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userImage != null">
+        #{userImage,jdbcType=VARCHAR},
+      </if>
+      <if test="userRealName != null">
+        #{userRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdcard != null">
+        #{userIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null">
+        #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null">
+        #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userWorkExperience != null">
+        #{userWorkExperience,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegisterTime != null">
+        #{userRegisterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userSpare != null">
+        #{userSpare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.User">
+    update user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        user_password = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userGender != null">
+        user_gender = #{userGender,jdbcType=VARCHAR},
+      </if>
+      <if test="userAge != null">
+        user_age = #{userAge,jdbcType=INTEGER},
+      </if>
+      <if test="userEmail != null">
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userImage != null">
+        user_image = #{userImage,jdbcType=VARCHAR},
+      </if>
+      <if test="userRealName != null">
+        user_real_name = #{userRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdcard != null">
+        user_idcard = #{userIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null">
+        user_address = #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null">
+        user_school = #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userWorkExperience != null">
+        user_work_experience = #{userWorkExperience,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegisterTime != null">
+        user_register_time = #{userRegisterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userStatus != null">
+        user_status = #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userSpare != null">
+        user_spare = #{userSpare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.User">
+    update user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      user_gender = #{userGender,jdbcType=VARCHAR},
+      user_age = #{userAge,jdbcType=INTEGER},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_image = #{userImage,jdbcType=VARCHAR},
+      user_real_name = #{userRealName,jdbcType=VARCHAR},
+      user_idcard = #{userIdcard,jdbcType=VARCHAR},
+      user_address = #{userAddress,jdbcType=VARCHAR},
+      user_school = #{userSchool,jdbcType=VARCHAR},
+      user_work_experience = #{userWorkExperience,jdbcType=VARCHAR},
+      user_register_time = #{userRegisterTime,jdbcType=TIMESTAMP},
+      user_status = #{userStatus,jdbcType=INTEGER},
+      user_spare = #{userSpare,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="selectPasswordByPhone" parameterType="java.lang.String" resultType="java.lang.String">
+    select user_password
+    from user
+    where user_phone = #{userPhone,jdbcType=VARCHAR};
+  </select>
+  <select id="selectUserByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where user_phone = #{userPhone,jdbcType=VARCHAR};
+  </select>
+  <select id="selectAllUsers" resultMap="BaseResultMap">
+    select *
+    from user;
+  </select>
+  <update id="updatePasswordByPhone" parameterType="com.rush.entity.User">
+    update user set user_password = #{userPassword,jdbcType=VARCHAR}  where user_phone = #{userPhone,jdbcType=VARCHAR};
+  </update>
+  <select id="selectByPhoneAndPwd" parameterType="com.rush.entity.LoginBean" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user where user_phone = #{loginAccount} and user_password = #{loginPassword}
+  </select>
+  <select id="selectUserNameByUserId" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select user_real_name
+    from user
+    where user_id = #{userId,jdbcType=INTEGER};
+  </select>
+  <select id="selectPhone" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select count(user_id)
+    from user
+    where user_phone = #{phone}
+  </select>
+
+  <!--&lt;!&ndash;根据邮箱查&ndash;&gt;
+  <select id="selectUserByPhone" resultMap="BaseResultMap" parameterType="java.lang.String">
+   select
+   <include refid="Base_Column_List"/>
+   from userwhere user_phone=#{userPhone}
+  </select>-->
+  <!--根据手机号码查-->
+  <select id="selectUserByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List"/>
+    from user
+    where user_email=#{userEmail}
+  </select>
+  <!--根据邮箱和密码查询用户-->
+  <select id="selectUserByEmailAndPwd" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+    select
+    <include refid="Base_Column_List"/>
+    from user
+    where user_email=#{email} and user_password=#{password}
+  </select>
+  <!--根据手机号码和密码查询用户-->
+  <select id="selectUserByPhoneAndPwd" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+    select
+    <include refid="Base_Column_List"/>
+    from user
+    where user_phone=#{phone} and user_password=#{password}
+  </select>
+  <!--根据用户id和密码判断原密码是否正确-->
+  <select id="selectUserByUserIdAndPwd" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List"/>
+    from user
+    where user_id=#{userId} and user_password=#{password}
+  </select>
+  <!--根据用户id查询用户姓名-->
+  <select id="selectUserNameByPrimaryKey" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select user_name
+    from user
+    where user_id=#{userId}
+  </select>
+</mapper>

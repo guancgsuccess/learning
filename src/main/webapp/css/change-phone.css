@@ -1,0 +1,291 @@
+.module-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: #fff;
+    width: 613px;
+    margin: auto;
+}
+.discuss-topic-head {
+    border-bottom: 1px solid #ddd;
+    line-height: 1.5;
+    padding: 20px;
+}
+.discuss-title {
+    background: url(//static.nowcoder.com/images/img/icons/ico-discuss.png) no-repeat;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.clearfix:after, .clearfix:before {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+.answer-head {
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ededed;
+    overflow: hidden;
+    margin-right: 15px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+.answer-head {
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ededed;
+    overflow: hidden;
+    margin-right: 15px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+a {
+    color: #333;
+}
+a, ins {
+    text-decoration: none;
+}
+.answer-head img {
+    width: 50px;
+    display: block;
+}
+.answer-head img {
+    width: 100%;
+    display: block;
+}
+img {
+    -ms-interpolation-mode: bicubic;
+}
+fieldset, img {
+    border: 0;
+}
+.post-detail .post-name {
+    color: #999;
+    display: inline-block;
+    vertical-align: text-top;
+    margin-bottom: 10px;
+    max-width: 13em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+.level-color-9 {
+    color: #fe2424!important;
+}
+.identity-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 2px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+.post-legend {
+    text-align: right;
+}
+.post-time {
+    color: #999;
+    font-size: 12px;
+    float: left;
+}
+.feed-legend {
+    float: right;
+    color: #999;
+}
+
+.feed-legend {
+    float: right;
+}
+.feed-legend-pipe {
+    padding: 0 5px;
+}
+.feed-legend-pipe {
+    padding: 0 5px;
+}
+.feed-legend-num {
+    padding-left: 5px;
+}
+.clearfix:after, .clearfix:before {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.fixed-title.discuss-title {
+    background-color: #fff;
+    width: 613px;
+    padding: 15px 20px 15px 55px;
+    position: fixed;
+    top: 54px;
+    z-index: 20;
+    margin: 0 -20px;
+    box-shadow: 0 0 1px #ccc;
+    background-position: 20px 18px;
+}
+.discuss-title {
+    background: url(//static.nowcoder.com/images/img/icons/ico-discuss.png) no-repeat;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+.discuss-tool-bar {
+    float: right;
+    font-size: 16px;
+}
+.discuss-tool-bar a {
+    margin-left: 10px;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+[class*=" icon-"], [class^=icon-] {
+    display: inline;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    vertical-align: baseline;
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: repeat;
+    margin-top: 0;
+}
+.caret, [class*=" icon-"], [class^=icon-] {
+    font-family: FontAwesome;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+}
+.icon-thumbs-up:before {
+    content: "\f164";
+}
+[class*=" icon-"]:before, [class^=icon-]:before {
+    text-decoration: inherit;
+    display: inline-block;
+    speak: none;
+}
+.post-topic-main {
+    padding: 20px;
+    font-size: 14px;
+}
+.post-topic-des {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+.nc-post-content {
+    font-size: 14px;
+}
+b, strong {
+    color: #000;
+}
+strong {
+    font-weight: 700;
+}
+strong, b {
+    font-weight: bold;
+}
+.oprt-tool {
+    float: right;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.module-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+.accept-review-mod {
+    background: #fff1e6;
+}
+.accept-review-mod, .wonderful-review-mod {
+    background: #edfaf8;
+    padding: 15px;
+}
+.module-head h1, .module-head h2 {
+    font-size: 16px;
+    line-height: 16px;
+    float: left;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.accept-tag {
+    background: #f59850;
+}
+.accept-tag, .wonderful-tag {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    background: #00bc9b;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    width: 50px;
+    padding: 5px 0 0;
+}
+.module-head {
+    padding: 15px 15px 0;
+    line-height: normal;
+    position: relative;
+}
+.module-body {
+    padding: 20px;
+}
+.blank-box {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+    padding: 30px;
+}
+.blank-img {
+    margin-bottom: 20px;
+}
+.pagination {
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    margin: 20px 0 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -4px;
+}
+ol, ul {
+    list-style: none;
+}
+.accept-review-mod, .wonderful-review-mod {
+    background: #edfaf8;
+    padding: 15px;
+}
+.accept-tag, .wonderful-tag {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    background: #00bc9b;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    width: 50px;
+    padding: 5px 0 0;
+}

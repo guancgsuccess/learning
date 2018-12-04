@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+ul{
+    list-style: none;
+}
+#head{
+    z-index: 200;
+}
+
+#commonproblem{
+    width: 100%;
+    height: auto;
+    background-color: #eee;
+}
+
+#commonproblem_blank_top{
+    width: 100%;
+    height: 20px;
+}
+
+#commonproblem_blank_footer{
+    height: 35px;
+}
+
+#commonproblem_content{
+    width: 960px;
+    height: 940px;
+    margin: auto;
+    border: 1px solid #d4d4d4;
+}
+
+#commonproblem_left{
+    width: 250px;
+    min-height: 840px;
+    float: left;
+    background: #f2f2f2;
+    border-right: 1px solid #d4d4d4;
+}
+
+#commonproblem_left li{
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+#commonproblem_left li a{
+    display: block;
+    padding-left: 30px;
+    color: #666;
+}
+
+#commonproblem_left li a:hover,
+#commonproblem_left li.selected a{
+    background: url(//static.nowcoder.com/images/img/arrow-r.png) no-repeat 230px center #fff;
+    color: #333;
+    text-decoration: none;
+    border-left: 3px solid #ff6547;
+    padding-left: 28px;
+    margin-left: -1px;
+    margin-right: -1px;
+}
+
+#commonproblem_right{
+    width: 705px;
+    float: left;
+    background: #fff;
+    min-height: 840px;
+}
+
+#commonproblem_right h1{
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #d4d4d4;
+    padding-left: 20px;
+}
+
+.commonproblem-content-banner {
+    height: 250px;
+    background: #eee;
+    margin-bottom: 30px;
+}
+
+.commonproblem-content-box {
+    padding: 30px;
+}
+
+.commonproblem-content-txt p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.4em;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font: 14px/1.5 arial,STHeiti,'Microsoft YaHei',\5b8b\4f53;
+    word-wrap: break-word;
+}

@@ -1,0 +1,20 @@
+
+.online-top{
+    width: 1459px;
+    height: auto;
+    padding: 0 30px 30px 30px;
+    background-color: #383F4B;
+}
+.online-title1 h2{
+    padding: 5px 0;
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 16px;
+    color: #00bc9b;
+}
+.online-content1{
+    font-size: 14px;
+    line-height: 1.8;
+    color: #fff;
+    padding-left: 32px;
+}

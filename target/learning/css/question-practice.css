@@ -1,0 +1,248 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#head{
+    z-index: 200;
+}
+.practice-wrapper{
+    width: 100%;
+    height: auto;
+    padding: 30px 0 110px;
+    background-color: #eee;
+}
+.practice-content{
+    margin: 0 auto;
+    background: #FFF;
+    width: 960px;
+    height: auto;
+}
+.subject-progress {
+    padding: 10px 270px 10px 30px;
+    background: #232c31;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    white-space: nowrap;
+    height: 10px;
+}
+.subject-title {
+    padding: 15px 20px 15px 55px;
+    background: #FFF url(//static.nowcoder.com/images/img/q-ico.png) 20px 16px no-repeat;
+    line-height: 1.5;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    border-radius: 3px;
+}
+.subject-main {
+    background: #FFF;
+    padding: 20px;
+}
+.subject-content {
+    position: relative;
+    margin-bottom: 20px;
+    height: auto;
+}
+.subject-question {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+p {
+    line-height: 1.4em;
+}
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.subject-options {
+    margin-bottom: 20px;
+    border: 1px solid #d4d4d4;
+    border-radius: 2px;
+    padding: 12px 20px 13px;
+    background: #FFF;
+    display: block;
+    word-break: break-all;
+}
+
+a {
+    color: #333;
+}
+.subject-main .checkbox, .subject-main .radio {
+    margin: 0;
+    line-height: 20px;
+}
+.checkbox, .radio {
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    display: inline-block;
+}
+.radio .icons {
+    border-radius: 50%!important;
+}
+
+.checkbox .icons, .radio .icons {
+    border: 1px solid #DDD;
+    vertical-align: -3px;
+    width: 14px;
+    height: 14px;
+    background: #FFF;
+    display: inline-block;
+    margin-right: 3px;
+    border-radius: 2px;
+    line-height: normal;
+    position: relative;
+}
+.checkbox input, .radio input {
+    display: none;
+    outline: medium none!important;
+}
+
+button, input {
+}
+button, input {
+    line-height: normal;
+}
+button, input, optgroup, option, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+label.checkbox pre, label.radio pre {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 850px;
+}
+
+.result-answer-item pre, label.checkbox pre, label.radio pre {
+    padding: 0;
+    margin: 0;
+    background: 0 0;
+    border: none;
+}
+code, pre {
+    font-family: Courier,'Courier New',monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre {
+    font-size: 14px;
+    position: relative;
+    border-left: 2px solid #1abc9c;
+    padding: 10px 0 10px 10px;
+    margin: .8em 0;
+    background: #fefefe;
+    word-break: break-word;
+}
+.subject-action {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.subject-opr {
+    float: left;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 13px;
+}
+.subject-opr-item {
+    margin: 0 15px;
+}
+
+.subject-opr {
+    float: left;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 13px;
+}
+.subject-opr-item .ico-collect {
+    background-position: -79px 0;
+}
+.subject-opr-item i {
+    background: url(//static.nowcoder.com/images/img/icons/icon-subject.png) no-repeat;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+i, cite, em, var, address, dfn {
+    font-style: italic;
+}
+.subject-opr-item .ico-mark {
+    background-position: -79px -16px;
+}
+.subject-opr-item .ico-shield {
+    background-position: -95px 0;
+}
+.subject-action .btn {
+    margin-right: 10px;
+}
+button, input[type=button], input[type=submit] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+button, input[type=button], input[type=submit] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+.warning-btn {
+    background: #ff6547;
+    float: left;
+    margin-right: 20px;
+}
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0;
+    width: 110px;
+    color: #FFF;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none 0;
+    cursor: pointer;
+    line-height: normal;
+    outline: 0;
+    white-space: nowrap;
+}
+.subject-action .btn {
+    margin-right: 10px;
+}
+button, input[type=button], input[type=submit] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+button, input[type=button], input[type=submit] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+.btn-primary {
+    background: #00BC9B;
+}
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0;
+    width: 110px;
+    color: #FFF;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none 0;
+    cursor: pointer;
+    line-height: normal;
+    outline: 0;
+    white-space: nowrap;
+}
+.subject-opr-item a:hover{
+    color: #00BC9B;
+}
+.subject-options:hover{
+    color: #00BC9B;
+    background-color: #eeeeee;
+    border-color: #00BC9B!important;
+}
+.span-selected{
+    background-color: #FF411C!important;
+}

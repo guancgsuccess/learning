@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.QuestionPaperDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.QuestionPaper">
+    <id column="question_paper_id" jdbcType="INTEGER" property="questionPaperId" />
+    <result column="question_paper_company_id" jdbcType="INTEGER" property="questionPaperCompanyId" />
+    <result column="question_paper_title" jdbcType="VARCHAR" property="questionPaperTitle" />
+    <result column="question_paper_number" jdbcType="INTEGER" property="questionPaperNumber" />
+    <result column="question_paper_birthday" jdbcType="VARCHAR" property="questionPaperBirthday" />
+    <result column="question_paper_sparec" jdbcType="VARCHAR" property="questionPaperSparec" />
+    <result column="question_paper_spared" jdbcType="VARCHAR" property="questionPaperSpared" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    question_paper_id, question_paper_company_id, question_paper_title, question_paper_number, 
+    question_paper_birthday, question_paper_sparec, question_paper_spared
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from question_paper
+    where question_paper_id = #{questionPaperId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from question_paper
+    where question_paper_id = #{questionPaperId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.QuestionPaper">
+    insert into question_paper (question_paper_id, question_paper_company_id, 
+      question_paper_title, question_paper_number, 
+      question_paper_birthday, question_paper_sparec, 
+      question_paper_spared)
+    values (#{questionPaperId,jdbcType=INTEGER}, #{questionPaperCompanyId,jdbcType=INTEGER}, 
+      #{questionPaperTitle,jdbcType=VARCHAR}, #{questionPaperNumber,jdbcType=INTEGER}, 
+      #{questionPaperBirthday,jdbcType=VARCHAR}, #{questionPaperSparec,jdbcType=VARCHAR}, 
+      #{questionPaperSpared,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.QuestionPaper">
+    insert into question_paper
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="questionPaperId != null">
+        question_paper_id,
+      </if>
+      <if test="questionPaperCompanyId != null">
+        question_paper_company_id,
+      </if>
+      <if test="questionPaperTitle != null">
+        question_paper_title,
+      </if>
+      <if test="questionPaperNumber != null">
+        question_paper_number,
+      </if>
+      <if test="questionPaperBirthday != null">
+        question_paper_birthday,
+      </if>
+      <if test="questionPaperSparec != null">
+        question_paper_sparec,
+      </if>
+      <if test="questionPaperSpared != null">
+        question_paper_spared,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="questionPaperId != null">
+        #{questionPaperId,jdbcType=INTEGER},
+      </if>
+      <if test="questionPaperCompanyId != null">
+        #{questionPaperCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="questionPaperTitle != null">
+        #{questionPaperTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="questionPaperNumber != null">
+        #{questionPaperNumber,jdbcType=INTEGER},
+      </if>
+      <if test="questionPaperBirthday != null">
+        #{questionPaperBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="questionPaperSparec != null">
+        #{questionPaperSparec,jdbcType=VARCHAR},
+      </if>
+      <if test="questionPaperSpared != null">
+        #{questionPaperSpared,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.QuestionPaper">
+    update question_paper
+    <set>
+      <if test="questionPaperCompanyId != null">
+        question_paper_company_id = #{questionPaperCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="questionPaperTitle != null">
+        question_paper_title = #{questionPaperTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="questionPaperNumber != null">
+        question_paper_number = #{questionPaperNumber,jdbcType=INTEGER},
+      </if>
+      <if test="questionPaperBirthday != null">
+        question_paper_birthday = #{questionPaperBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="questionPaperSparec != null">
+        question_paper_sparec = #{questionPaperSparec,jdbcType=VARCHAR},
+      </if>
+      <if test="questionPaperSpared != null">
+        question_paper_spared = #{questionPaperSpared,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where question_paper_id = #{questionPaperId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.QuestionPaper">
+    update question_paper
+    set question_paper_company_id = #{questionPaperCompanyId,jdbcType=INTEGER},
+      question_paper_title = #{questionPaperTitle,jdbcType=VARCHAR},
+      question_paper_number = #{questionPaperNumber,jdbcType=INTEGER},
+      question_paper_birthday = #{questionPaperBirthday,jdbcType=VARCHAR},
+      question_paper_sparec = #{questionPaperSparec,jdbcType=VARCHAR},
+      question_paper_spared = #{questionPaperSpared,jdbcType=VARCHAR}
+    where question_paper_id = #{questionPaperId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectCount" resultType="java.lang.Integer">
+    select count(question_paper_id) from question_paper
+  </select>
+  <select id="selectQuestionByPage" parameterType="com.rush.util.PageModel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question_paper
+    limit #{startRecord},#{pageSize}
+  </select>
+  <select id="getQuestionPaperNumber" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select question_paper_number
+    from question_paper
+    where question_paper_id = #{questionPaperId}
+  </select>
+  <select id="selectCountByLanguage" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select count(question_paper_id) from question_paper where question_paper_sparec = #{language}
+  </select>
+  <select id="selectCountByCompany" parameterType="java.lang.String"  resultType="java.lang.Integer">
+    select count(question_paper_id) from question_paper where question_paper_spared = #{company}
+  </select>
+  <select id="selectCountByTime" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select count(question_paper_id) from question_paper where question_paper_birthday = #{time}
+  </select>
+  <select id="selectQuestionByPageAndLanguage" parameterType="com.rush.util.PageModel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question_paper
+    where question_paper_sparec = #{record}
+    limit #{startRecord},#{pageSize}
+  </select>
+  <select id="selectQuestionByPageAndCompany" parameterType="com.rush.util.PageModel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question_paper
+    where question_paper_spared = #{record}
+    limit #{startRecord},#{pageSize}
+  </select>
+  <select id="selectQuestionByPageAndTime" parameterType="com.rush.util.PageModel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question_paper
+    where question_paper_birthday = #{record}
+    limit #{startRecord},#{pageSize}
+  </select>
+  <select id="selectSomeDatas" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question_paper
+    limit #{count}
+  </select>
+
+
+  <select id="selectQuestionPapersByUserId4Page" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+    select
+    <include refid="Base_Column_List"/>
+    from question_paper join (select question_id,question_bank_spare from question_bank
+    where question_id in (select question_id from user_question where user_id=#{userId})) a
+    on question_paper_id=a.question_bank_spare
+    group by question_paper_id
+    limit #{paperPageModel.startRecord},#{paperPageModel.pageSize}
+  </select>
+  <!--获取试卷数量-->
+  <select id="selectAllRecordsByUserIdWithoutRepetition" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select count(b.question_paper_id)
+    from(select question_paper_id,question_paper_title,question_paper_number from question_paper join (select question_id,question_bank_spare from question_bank where question_id in (select question_id from user_question where user_id=#{userId})) a on question_paper_id=a.question_bank_spare group by question_paper_id) b
+  </select>
+
+
+  <!--++++++++++++++++++++++-->
+  <select id="questionPapers" parameterType="com.rush.util.PageModel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from question_paper
+    where question_paper_company_id = #{companyId,jdbcType=INTEGER}
+    limit #{startRecord},#{pageSize}
+  </select>
+  <delete id="deletePaper" parameterType="java.lang.Integer">
+        delete
+        from question_paper
+        where question_paper_id = #{questionPaperId,jdbcType=INTEGER}
+    </delete>
+  <select id="paperCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(question_paper_id)
+        from question_paper
+        where question_paper_company_id = #{questionPaperCompanyId}
+    </select>
+</mapper>

@@ -1,0 +1,97 @@
+#head{
+    z-index: 200;
+}
+.aboutus-content-box .module-box {
+    border: none;
+    margin: -20px;
+}
+
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+
+.module-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+body {
+    font: 12px/1.5 arial,STHeiti,'Microsoft YaHei',\5b8b\4f53;
+    word-wrap: break-word;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.clearfix:after, .clearfix:before {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.module-head {
+    padding: 0 15px 0;
+    line-height: normal;
+    position: relative;
+}
+
+.module-head h2 {
+    font-size: 16px;
+}
+
+.module-head h1, .module-head h2 {
+    font-size: 16px;
+    line-height: 16px;
+    float: left;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.contact-mod:last-child {
+    border-bottom: none;
+}
+.contact-mod {
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding: 0 10px 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.module-body {
+    padding-left: 30px;
+}
+
+.module-head h1:before, .module-head h2:before {
+    background: #FF6547;
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    vertical-align: middle;
+}

@@ -1,0 +1,163 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#head{
+    z-index: 200;
+}
+.answer-wrapper{
+    width: 100%;
+    height: auto;
+    background-color: #eee;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.answer-content{
+    width: 960px;
+    height: auto;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    padding-bottom: 50px;
+
+}
+.menu-box {
+    background: #FFF;
+    height: 42px;
+    border-bottom: 2px solid #00bc9b;
+    border-top: none;
+}
+.menu, .menu-txt {
+    float: left;
+    letter-spacing: -4px;
+    white-space: nowrap;
+}
+
+ol, ul {
+    list-style: none;
+}
+.menu li.selected, .menu li.selected .sub-menu, .menu li.selected a, .menu li.selected a:hover {
+    background: #00bc9b;
+    color: #FFF;
+}
+.menu li, .menu-txt li {
+    letter-spacing: 0;
+    display: inline-block;
+    margin-right: 1px;
+    position: relative;
+}
+.selected:hover{
+    background: #00bc9b;
+}
+.noselected:hover{
+    background: #00bc9b;
+}
+a:hover{
+    color: #FFFFFF!important;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+.menu a {
+    display: block;
+    padding: 0 20px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    white-space: nowrap;
+}
+a {
+    color: #333;
+}
+a{
+    text-decoration: none;
+}
+.graph-box {
+    padding: 30px 0;
+}
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.graph-info {
+    width: 900px;
+    padding-left: 30px;
+    padding-right: 30px;
+    /*float: left;*/
+    border-right: 1px solid #ddd;
+}
+.graph-statistic {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.graph-score {
+    background-position: 0 -169px;
+}
+.graph-rank, .graph-result, .graph-score {
+    background: url(//static.nowcoder.com/images/img/icons/ico-report.png) no-repeat;
+    padding-left: 30px;
+    color: #888;
+    height: 28px;
+    line-height: 36px;
+    display: inline-block;
+    margin-right: 40px;
+}
+.graph-statistic {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.graph-detail {
+    float: none;
+    width: 425px;
+    font-size: 16px;
+    color: #34495e;
+}
+.graph-detail p {
+    font-weight: 700;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
+p {
+    line-height: 1.4em;
+    font-weight: 400;
+}
+.graph-detail .item-label {
+    font-size: 16px;
+    width: auto;
+    text-align: left;
+}
+.graph-detail .stars {
+    vertical-align: baseline;
+    margin-left: 10px;
+}
+
+.star-3 {
+    background-position: 0 -81px;
+}
+.stars, .stars-all, .stars-big, .stars-choose, .stars-new, .stars-sm {
+    display: inline-block;
+    vertical-align: middle;
+    width: 117px;
+    height: 17px;
+    background: url(//static.nowcoder.com/images/img/stars-new2.png) no-repeat;
+}
+.btn-primary {
+    background: #00BC9B;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0;
+    width: 110px;
+    color: #FFF;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none 0;
+    cursor: pointer;
+    line-height: normal;
+    outline: 0;
+    white-space: nowrap;
+}

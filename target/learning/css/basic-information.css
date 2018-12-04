@@ -1,0 +1,212 @@
+#head{
+    z-index: 200;
+}
+/****************************下部分主体右边****************************/
+#basic-information .main-bottom-right{
+    /*border: 1px solid #888888;*/
+    float: right;
+    width: 68%;
+    box-sizing: border-box;
+}
+
+#basic-information .main-bottom-right .module-box{
+    width: 100%;
+}
+
+#basic-information .main-bottom-right .module-box .module-body{
+    width: 100%;
+}
+#basic-information .main-bottom-right .module-box .module-body .profile-info-box{
+    width: 95%;
+    margin:0 auto;
+}
+
+#basic-information .module-body .profile-info-box .profile-caption{
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #3d444c;
+    /*background-color: #FF6547;*/
+    box-sizing: border-box;
+    padding-top: 3px;
+}
+
+#basic-information .module-body .profile-info-box .profile-caption .ctr-btn-box{
+    width: 130px;
+    float: right;
+    text-align: center;
+    line-height: 36px;
+}
+
+#basic-information .module-body .profile-info-box .profile-caption .ctr-btn-box a{
+    color: #FFFFFF;
+    /*border: 1px solid #00b091;*/
+    border-radius: 9px;
+    float: right;
+    width: 90px;
+    height: 36px;
+    background-color: #00bc9b;
+}
+
+#basic-information .module-body .profile-info-box .profile-caption .ctr-btn-box a:hover{
+    background-color: #00b091;
+}
+
+
+
+#basic-information .module-body .profile-info-box .profile-caption .info-title{
+    float: left;
+    margin-top: 12px;
+    font-size: 17px;
+}
+
+#basic-information .module-body .profile-info-box .profile-caption .info-id{
+    font-size: 14px;
+    float: left;
+    margin-left: 13px;
+    margin-top: 13px;
+}
+
+/**************************************************/
+#basic-information .module-body .profile-info-box .info-box{
+    width: 100%;
+    /*height: 632px;*/
+    margin: 0 auto;
+    /*padding-bottom: 20px;*/
+    font-size: 15px;
+}
+
+#basic-information .module-body .profile-info-box .info-box dl{
+    width: 100%;
+    /*height: 45px;*/
+    box-sizing: border-box;
+    /*border: 1px solid black;*/
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#basic-information #work-exp{
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#basic-information #work-exp dt{
+    width: 20%;
+    float: left;
+    text-align: right;
+    line-height: 45px;
+}
+
+#basic-information #work-exp dd{
+    /*width: 76%;*/
+    float: right;
+    overflow: hidden;
+}
+
+#basic-information #work-exp dd textarea{
+    border: 1px solid black;
+    font-size: 14px;
+    resize: none;
+    font-family: unset;
+    font-weight: 500;
+}
+
+#basic-information .module-body .profile-info-box .info-box dl:first-of-type{
+    margin-top: 20px;
+}
+
+#basic-information .module-body .profile-info-box .info-box dl dt{
+    width: 20%;
+    float: left;
+    /*background-color: darkcyan;*/
+    text-align: right;
+    line-height: 45px;
+}
+
+#basic-information .module-body .profile-info-box .info-box dl dd{
+    width: 76%;
+    float: right;
+    overflow: hidden;
+    /*background-color: #FF6547;*/
+    line-height: 45px;
+}
+
+#basic-information #real-name1 a{
+    color: #00bc9b!important;
+}
+
+#basic-information #real-name2 a{
+    color: #00bc9b!important;
+}
+
+/************************************/
+#basic-information .info-edit-box{
+    padding-bottom: 20px;
+}
+
+
+#basic-information .module-body .profile-info-box .info-edit-box dl dd .input-text{
+    width: 60%;
+    height: 40px;
+    font-size: 15px;
+}
+
+
+
+
+
+#basic-information .module-body .profile-info-box .info-edit-box dl:last-of-type dd .info-work{
+    height: 300px;
+    width: 60%;
+    float: left;
+    /*background-color: #00bc9b;*/
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+#basic-information .module-body .profile-info-box .info-edit-box dl:nth-of-type(6) dd{
+    color: #a9a9a9;
+}
+
+#basic-information .module-body .profile-info-box .info-edit-box dl:nth-of-type(2) dd a{
+    width: 25%;
+    /*height: 34px;*/
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #bbbbbb;
+    text-align: center;
+    line-height: 40px;
+    float: left;
+}
+
+#basic-information .boy{
+    margin-right: 50px;
+    color: #FFFFFF;
+}
+
+#basic-information .boy:hover{
+    background-color: #00bfff!important;
+}
+
+#basic-information .girl{
+    color: #FFFFFF;
+}
+
+#basic-information .girl:hover{
+    background-color: #e773a3!important;
+}
+
+
+
+#basic-information #id-cancel{
+    background-color: #888888;
+    display: none;
+}
+
+#basic-information #id-save{
+    display: none;
+}
+
+

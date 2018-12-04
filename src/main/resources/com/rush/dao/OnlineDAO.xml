@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.OnlineDAO">
+  <resultMap id="BaseResultMap" type="com.rush.entity.Online">
+    <id column="online_id" jdbcType="INTEGER" property="onlineId" />
+    <result column="online_title" jdbcType="VARCHAR" property="onlineTitle" />
+    <result column="online_input_descript" jdbcType="VARCHAR" property="onlineInputDescript" />
+    <result column="online_output_descript" jdbcType="VARCHAR" property="onlineOutputDescript" />
+    <result column="online_input_example" jdbcType="VARCHAR" property="onlineInputExample" />
+    <result column="online_output_example" jdbcType="VARCHAR" property="onlineOutputExample" />
+    <result column="online_sparea" jdbcType="VARCHAR" property="onlineSparea" />
+    <result column="online_spareb" jdbcType="VARCHAR" property="onlineSpareb" />
+    <result column="online_sparec" jdbcType="VARCHAR" property="onlineSparec" />
+    <result column="online_spared" jdbcType="VARCHAR" property="onlineSpared" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    online_id, online_title, online_input_descript, online_output_descript, online_input_example, 
+    online_output_example, online_sparea, online_spareb, online_sparec, online_spared
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from online
+    where online_id = #{onlineId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from online
+    where online_id = #{onlineId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.Online">
+    insert into online (online_id, online_title, online_input_descript, 
+      online_output_descript, online_input_example, 
+      online_output_example, online_sparea, online_spareb, 
+      online_sparec, online_spared)
+    values (#{onlineId,jdbcType=INTEGER}, #{onlineTitle,jdbcType=VARCHAR}, #{onlineInputDescript,jdbcType=VARCHAR}, 
+      #{onlineOutputDescript,jdbcType=VARCHAR}, #{onlineInputExample,jdbcType=VARCHAR}, 
+      #{onlineOutputExample,jdbcType=VARCHAR}, #{onlineSparea,jdbcType=VARCHAR}, #{onlineSpareb,jdbcType=VARCHAR}, 
+      #{onlineSparec,jdbcType=VARCHAR}, #{onlineSpared,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.Online">
+    insert into online
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="onlineId != null">
+        online_id,
+      </if>
+      <if test="onlineTitle != null">
+        online_title,
+      </if>
+      <if test="onlineInputDescript != null">
+        online_input_descript,
+      </if>
+      <if test="onlineOutputDescript != null">
+        online_output_descript,
+      </if>
+      <if test="onlineInputExample != null">
+        online_input_example,
+      </if>
+      <if test="onlineOutputExample != null">
+        online_output_example,
+      </if>
+      <if test="onlineSparea != null">
+        online_sparea,
+      </if>
+      <if test="onlineSpareb != null">
+        online_spareb,
+      </if>
+      <if test="onlineSparec != null">
+        online_sparec,
+      </if>
+      <if test="onlineSpared != null">
+        online_spared,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="onlineId != null">
+        #{onlineId,jdbcType=INTEGER},
+      </if>
+      <if test="onlineTitle != null">
+        #{onlineTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineInputDescript != null">
+        #{onlineInputDescript,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineOutputDescript != null">
+        #{onlineOutputDescript,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineInputExample != null">
+        #{onlineInputExample,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineOutputExample != null">
+        #{onlineOutputExample,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineSparea != null">
+        #{onlineSparea,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineSpareb != null">
+        #{onlineSpareb,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineSparec != null">
+        #{onlineSparec,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineSpared != null">
+        #{onlineSpared,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.Online">
+    update online
+    <set>
+      <if test="onlineTitle != null">
+        online_title = #{onlineTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineInputDescript != null">
+        online_input_descript = #{onlineInputDescript,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineOutputDescript != null">
+        online_output_descript = #{onlineOutputDescript,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineInputExample != null">
+        online_input_example = #{onlineInputExample,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineOutputExample != null">
+        online_output_example = #{onlineOutputExample,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineSparea != null">
+        online_sparea = #{onlineSparea,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineSpareb != null">
+        online_spareb = #{onlineSpareb,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineSparec != null">
+        online_sparec = #{onlineSparec,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineSpared != null">
+        online_spared = #{onlineSpared,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where online_id = #{onlineId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.Online">
+    update online
+    set online_title = #{onlineTitle,jdbcType=VARCHAR},
+      online_input_descript = #{onlineInputDescript,jdbcType=VARCHAR},
+      online_output_descript = #{onlineOutputDescript,jdbcType=VARCHAR},
+      online_input_example = #{onlineInputExample,jdbcType=VARCHAR},
+      online_output_example = #{onlineOutputExample,jdbcType=VARCHAR},
+      online_sparea = #{onlineSparea,jdbcType=VARCHAR},
+      online_spareb = #{onlineSpareb,jdbcType=VARCHAR},
+      online_sparec = #{onlineSparec,jdbcType=VARCHAR},
+      online_spared = #{onlineSpared,jdbcType=VARCHAR}
+    where online_id = #{onlineId,jdbcType=INTEGER}
+  </update>
+</mapper>

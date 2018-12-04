@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rush.dao.WrittenTestDAO">
+  <cache type="com.rush.util.RedisCache"/>
+  <resultMap id="BaseResultMap" type="com.rush.entity.WrittenTest">
+    <id column="written_test_id" jdbcType="INTEGER" property="writtenTestId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="company_paper_id" jdbcType="INTEGER" property="companyPaperId" />
+    <result column="written_test_score" jdbcType="INTEGER" property="writtenTestScore" />
+    <result column="written_test_status" jdbcType="INTEGER" property="writtenTestStatus" />
+    <result column="written_test_spare" jdbcType="VARCHAR" property="writtenTestSpare" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    written_test_id, user_id, company_id, company_paper_id, written_test_score, written_test_status, 
+    written_test_spare
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from written_test
+    where written_test_id = #{writtenTestId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from written_test
+    where written_test_id = #{writtenTestId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rush.entity.WrittenTest">
+    insert into written_test (user_id, company_id,
+      company_paper_id, written_test_score, written_test_status)
+    values (#{userId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER},
+      #{companyPaperId,jdbcType=INTEGER}, #{writtenTestScore,jdbcType=INTEGER}, #{writtenTestStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rush.entity.WrittenTest">
+    insert into written_test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="writtenTestId != null">
+        written_test_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="companyPaperId != null">
+        company_paper_id,
+      </if>
+      <if test="writtenTestScore != null">
+        written_test_score,
+      </if>
+      <if test="writtenTestStatus != null">
+        written_test_status,
+      </if>
+      <if test="writtenTestSpare != null">
+        written_test_spare,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="writtenTestId != null">
+        #{writtenTestId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="companyPaperId != null">
+        #{companyPaperId,jdbcType=INTEGER},
+      </if>
+      <if test="writtenTestScore != null">
+        #{writtenTestScore,jdbcType=INTEGER},
+      </if>
+      <if test="writtenTestStatus != null">
+        #{writtenTestStatus,jdbcType=INTEGER},
+      </if>
+      <if test="writtenTestSpare != null">
+        #{writtenTestSpare,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rush.entity.WrittenTest">
+    update written_test
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="companyPaperId != null">
+        company_paper_id = #{companyPaperId,jdbcType=INTEGER},
+      </if>
+      <if test="writtenTestScore != null">
+        written_test_score = #{writtenTestScore,jdbcType=INTEGER},
+      </if>
+      <if test="writtenTestStatus != null">
+        written_test_status = #{writtenTestStatus,jdbcType=INTEGER},
+      </if>
+      <if test="writtenTestSpare != null">
+        written_test_spare = #{writtenTestSpare,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where written_test_id = #{writtenTestId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rush.entity.WrittenTest">
+    update written_test
+    set user_id = #{userId,jdbcType=INTEGER},
+      company_id = #{companyId,jdbcType=INTEGER},
+      company_paper_id = #{companyPaperId,jdbcType=INTEGER},
+      written_test_score = #{writtenTestScore,jdbcType=INTEGER},
+      written_test_status = #{writtenTestStatus,jdbcType=INTEGER},
+      written_test_spare = #{writtenTestSpare,jdbcType=VARCHAR}
+    where written_test_id = #{writtenTestId,jdbcType=INTEGER}
+  </update>
+  <select id="selectInterviewOffer" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from written_test
+    where company_id = #{companyId,jdbcType=INTEGER} and user_id = #{userId,jdbcType=INTEGER} and written_test_status = 0;
+  </select>
+  <select id="confirmUserDoneTest" parameterType="com.rush.entity.WrittenTest" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from written_test
+    where user_id = #{userId,jdbcType=INTEGER} and company_id = #{companyId,jdbcType=INTEGER} and company_paper_id = #{companyPaperId,jdbcType=INTEGER} and written_test_status = 0;
+  </select>
+</mapper>
